@@ -1,0 +1,13 @@
+@if(!\Auth::guest())
+    @if(\Auth::user()->role=='Admin')
+        @include('layouts.menues.admin')
+    @elseif(\Auth::user()->role=='Staff')
+        @include('layouts.menues.staff')
+    @elseif(\Auth::user()->role=='Supplier')
+        @include('layouts.menues.supplier')
+    @else
+        @include('layouts.menues.user')
+    @endif
+@else
+        @include('layouts.menues.user')
+@endif

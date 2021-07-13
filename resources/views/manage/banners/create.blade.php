@@ -1,0 +1,54 @@
+@extends('layouts.main')
+
+@section('content')
+    <!--=== Breadcrumbs ===-->
+    <div class="breadcrumbs">
+        <div class="container">
+            <h1 class="pull-left">Dashboard</h1>
+            <ul class="pull-right breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li><a href="/manage">Dashboard</a></li>
+                <li><a href="/manage/banners">Banners</a></li>
+                <li class="active">Add Banner</li>
+            </ul>
+        </div>
+    </div><!--/breadcrumbs-->
+    <!--=== End Breadcrumbs ===-->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+        <div class="row">
+            <!-- Begin Sidebar Menu -->
+            @include('layouts.sidebar_nav')
+            <!-- End Sidebar Menu -->
+
+            <!-- Begin Content -->
+            <div class="col-md-9">
+
+                <!-- Horizontal Form -->
+                <div class="panel panel-default margin-bottom-40">
+                    <div class="panel-heading">
+                        <h5 class="panel-title"><i class="icon-plus"></i>{{ $vars['title'] }} | {{ $vars['sub_title'] }} </h5>
+                    </div>
+                    <div class="panel-body margin-bottom-20">
+                    {!! Form::open( array('route' =>'manage.banners.store','class'=>'form-horizontal sky-form', 'role'=>'form', 'files'=>true)) !!}
+                    @include('manage.banners._form')
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button type="submit" class="btn-u btn-u">Submit</button>
+                                </div>
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+                <!-- End Horizontal Form -->
+
+            </div>
+            <!-- End Content -->
+
+        </div>
+    </div><!--/container-->
+    <!--=== End Content Part ===-->
+
+@endsection

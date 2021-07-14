@@ -14,7 +14,7 @@ class Product extends Model
 
     public static function types()
     {
-    	return ['Agriculture'=>'Agriculture','Clothing'=>'Clothing','Textile'=>'Textile','Craft'=>'Craft','Mineral'=>'Mineral','Manufacturing'=>'Manufacturing','Electronic'=>'Electronic'];
+    	return ['Agriculture'=>'Agriculture','Clothing'=>'Clothing','Textile'=>'Textile','Craft'=>'Craft','Food'=>'Food','Manufacturing'=>'Manufacturing','Electronic'=>'Electronic'];
     }
 
     public function sluggable()
@@ -114,5 +114,11 @@ class Product extends Model
         }elseif($value == 'Accepted'){
             return 'label-success';
         }
+    }
+
+
+    public static function status_list()
+    {
+        return ['Rejected'=>'Rejected','Accepted'=>'Accepted','Review'=>'Review','Pending'=>'Pending','Out-Of-Stock'=>'Out-Of-Stock'];
     }
 }

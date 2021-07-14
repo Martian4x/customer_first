@@ -16,7 +16,7 @@ class CreateMaincategoriesTable extends Migration
             $table->increments('id');
             $table->string('name')->index();
             $table->string('slug')->unique()->index();
-            $table->enum('type', ['Agriculture','Clothing','Textile','Craft','Mineral','Manufacturing','Electronic']);
+            $table->enum('type', ['Agriculture','Clothing','Textile','Craft','Mineral','Manufacturing','Electronic','Food']);
             $table->string('quantity_unit', 45)->nullable(); // Kg, Tons, Items, Pieces, Bundle
             $table->text('description')->nullable();
             $table->timestamps();

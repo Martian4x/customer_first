@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'email', 'password', 'company', 'img','img_url', 'address', 'mob_no', 'tel_no', 'country', 'role', 'verified', 'status', 'description'
+        'fname', 'lname', 'email', 'password', 'company', 'img','img_url', 'user_group_id', 'lang', 'address', 'mob_no', 'tel_no', 'country', 'role', 'verified', 'status', 'description'
     ];
 
     public static function countries_list()
@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->hasMany('\App\Order');
     }
 
+    public function user_group()
+    {
+        return $this->belongsTo('\App\UserGroup');
+    }
+
     public function carts()
     {
         return $this->hasMany('\App\Cart');
@@ -79,5 +84,13 @@ class User extends Authenticatable
             $total[] = $cart->quantity*$cart->product->price_discount;
         }
         return array_sum($total);
+    }
+
+    public function send_sms($message)
+    {
+		$message = 'Hello, '.$this->fname.' '.$message;
+        $recepients = [['recipient_id' => '1','dest_addr'=>$this->mob_no]];
+        // dd($message);
+		return \App\SMS::send($recepients, $message);
     }
 }

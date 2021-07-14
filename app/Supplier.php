@@ -18,6 +18,11 @@ class Supplier extends Model
         return $this->hasMany('\App\Order');
     }
 
+    public function messages() // 
+    {
+        return $this->hasMany('\App\Message');
+    }
+
     public function user()
     {
     	return $this->belongsTo('\App\User','user_id');
@@ -31,6 +36,11 @@ class Supplier extends Model
     public function customers()
     {
         return $this->belongsToMany('App\User', 'supplier_user', 'supplier_id', 'user_id');
+    }
+
+    public function getMsg($name, $lang=null)
+    {
+        return $this->messages()->whereName(strtolower($name))->whereLang($lang)->latest()->first();
     }
 
     public function ribbon_color($value)

@@ -12,7 +12,7 @@
                 <li><a href="/manage/products/type/clothings"><i class="fa fa-black-tie"></i> &nbsp; Clothing Products</a></li>
                 <li><a href="/manage/products/type/textiles"><i class="fa fa-slack"></i> &nbsp; Textile Products</a></li>
                 <li><a href="/manage/products/type/crafts"><i class="fa fa-image"></i> &nbsp; Crafts Products</a></li>
-                <li><a href="/manage/products/type/minerals"><i class="fa fa-diamond"></i> &nbsp; Minerals Products</a></li>
+                <li><a href="/manage/products/type/foods"><i class="fa fa-birthday-cake"></i> &nbsp; Food Products</a></li>
                 <li><a href="/manage/products/type/manufacturing"><i class="fa fa-gears"></i> &nbsp; Manufacturing Products</a></li>
                 <li><a href="/manage/products/type/electronics"><i class="fa fa-calculator"></i> &nbsp; Electronics Products</a></li>
                 <li><a href="/manage/products"><i class="fa fa-align-justify"></i> &nbsp; All Products</a></li>
@@ -40,7 +40,7 @@
                 <li><a href="/manage/type/clothing"><i class="fa fa-black-tie"></i> &nbsp; Clothing Categories</a></li>
                 <li><a href="/manage/type/textile"><i class="fa fa-slack"></i> &nbsp; Textile Categories</a></li>
                 <li><a href="/manage/type/craft"><i class="fa fa-image"></i> &nbsp; Crafts Categories</a></li>
-                <li><a href="/manage/type/mineral"><i class="fa fa-diamond"></i> &nbsp; Minerals Categories</a></li>
+                <li><a href="/manage/type/food"><i class="fa fa-birthday-cake"></i> &nbsp; foods Categories</a></li>
                 <li><a href="/manage/type/manufacturing"><i class="fa fa-gears"></i> &nbsp; Manufacturing Categories</a></li>
                 <li><a href="/manage/type/electronics"><i class="fa fa-calculator"></i> &nbsp; Electronics Categories</a></li>
                 <li><a href="/manage/products"><i class="fa fa-align-justify"></i> &nbsp; All Products</a></li>

@@ -26,10 +26,16 @@ class DashboardController extends Controller
     
     public function index()
     {
+        // dd(\Auth::user()->role);
         if(\Auth::user()->role == 'Admin'||\Auth::user()->role == 'Staff'){
-            $vars['products'] = Product::whereBadge($badge)->paginate(30);
+            // $vars['products'] = Product::whereBadge($badge)->paginate(30);
+            $vars['title'] = 'Dashboard';
+            $vars['sub_title'] = 'Admin Dashboard';
+            return view('manage.dashboards.admin', compact('vars', $vars));
         }
         elseif(\Auth::user()->role == 'Supplier'){
+            $vars['title'] = 'Business';
+            $vars['sub_title'] = 'Admin Business';
             // $vars['supplier'] = \Auth::user()->supplier;
             // $vars['products'] = $vars['supplier']->products()->whereBadge($badge)->paginate(30);
             // $vars['customers'] = User::->count();

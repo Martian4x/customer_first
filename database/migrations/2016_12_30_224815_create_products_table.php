@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price',12,2)->nullable()->unsigned(); 
             $table->decimal('price_discount',12,2)->nullable()->unsigned(); 
             $table->string('product_country');
-            $table->enum('type', ['Agriculture','Clothing','Textile','Craft','Mineral','Manufacturing','Electronic']);
+            $table->enum('type', ['Agriculture','Clothing','Textile','Craft','Food','Manufacturing','Electronic']);
             $table->enum('status', ['Rejected','Accepted','Review','Pending','Out-Of-Stock'])->default('Review');
             $table->enum('badge', ['High-rated','Recommended','Sponsored','Normal'])->default('Normal');
             $table->string('status_info')->nullable();

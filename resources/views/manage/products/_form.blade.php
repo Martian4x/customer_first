@@ -101,7 +101,7 @@
         <label class="col-lg-2 control-label">Featured Image</label>
         <div class="col-lg-9">
             <label for="file" class="input input-file">
-                <div class="button"><input type="file" name="img" id="file" required="true" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" placeholder="Choose an image" readonly>
+                <div class="button"><input type="file" name="img" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" placeholder="Choose an image" readonly>
             </label>
         </div>
             {!! $errors->first('img', '<small class="error">:message</small>') !!}
@@ -113,7 +113,7 @@
 @include('manage.products.types._clothing')
 @include('manage.products.types._textile')
 @include('manage.products.types._craft')
-@include('manage.products.types._mineral')
+@include('manage.products.types._food')
 @include('manage.products.types._manufacturing')
 @include('manage.products.types._electronic')
 @elseif($view_name=='products.edit')
@@ -133,7 +133,7 @@
         <div class="col-lg-6">
             <label for="inputEmail1" class="col-lg-2 control-label">Status<span class="red">*</span></label>
             <div class="col-lg-10">
-                {!! Form::select('status', ['Active'=>'Active','Pending'=>'Pending', 'Banned'=>'Banned', 'Inactive'=>'Inactive'],'Active', ['class'=>'form-control', 'id'=>'status', 'required']) !!} 
+                {!! Form::select('status', \App\Product::status_list(),'Accepted', ['class'=>'form-control', 'id'=>'status', 'required']) !!} 
                 {!! $errors->first('status', '<small class="error">:message</small>') !!}
             </div>
         </div>

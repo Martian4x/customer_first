@@ -48,7 +48,7 @@
                             </div>
                             <div class="counters col-md-3 col-sm-3">
                                 <span class="counter-icon"><i class="fa fa-users rounded"></i></span>
-                                <span class="counter">{{ $vars['users'] }}</span>
+                                <span class="counter">0</span>
                                 <h4>Users</h4>
                             </div>
                         </div>

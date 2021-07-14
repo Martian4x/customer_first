@@ -8,7 +8,7 @@ use Validator;
 use Input;
 use Image;
 use Redirect;
-use DB;
+// use DB;
 use Carbon\Carbon;
 use App\Http\Requests\SupplierRequest;
 use App\Http\Requests as Requests;
@@ -19,8 +19,8 @@ class SuppliersController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('auth', ['except' => ['register','store']]);
-	$this->middleware(['admin','staff'], ['only' => 'index','destroy','search','status','verify']);
+		// $this->middleware('auth', ['except' => ['register','store']]);
+		// $this->middleware(['admin','staff'], ['only' => 'index','destroy','search','status','verify']);
 	// $this->middleware('supplier', ['except' => ['register','store']]);
 	}
 
@@ -39,14 +39,17 @@ class SuppliersController extends Controller
 
 	public function customers($id)
 	{	
-		if(\Auth::user()->role != 'Admin' && \Auth::user()->role != 'Staff'){
+		
+		// dd('die');
+		if(\Auth::user()->role != 'Admin' && \Auth::user()->role != 'Staff' && \Auth::user()->role != 'Supplier'){
 			return Redirect::back()->withMessage('You do not have Proper Privileges to perform such request..!')->with('flash_type', 'error');
 		}
-		
-		$vars['title'] = 'Users';
-		$vars['sub_title'] = 'All System Users';
-		$vars['users'] = User::all();
-		return view('manage.users.index', compact('vars'));
+		$supplier = Supplier::whereUserId(\Auth::id())->first();
+		$vars['title'] = 'Customers';
+		$vars['sub_title'] = $supplier->company_name.'\'s Customers';
+		$vars['users'] = $supplier->customers;
+		// dd($vars);
+		return view('manage.customers.index', compact('vars'));
 	}
 
 	public function index()

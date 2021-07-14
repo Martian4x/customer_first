@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreateUserGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) { //TODO: Production table updated
+        Schema::create('user_groups', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('supplier_id')->index()->unsigned()->nullable(); // Service Provided by
             $table->string('name')->nullable(); // Invoice title
-            $table->text('body')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
 
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('restrict');
@@ -30,6 +30,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('messages');
+        Schema::drop('user_groups');
     }
 }

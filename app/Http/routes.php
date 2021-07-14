@@ -59,6 +59,9 @@ Route::group(['prefix' => 'manage/'], function () {
 	Route::get('suppliers/{id}/verify', 'SuppliersController@verify');
 	// Customers
 	Route::get('suppliers/{id}/customers', 'SuppliersController@customers');
+	Route::get('suppliers/customers/create', 'CustomersController@create');
+	Route::resource('customers', 'CustomersController');
+
 	Route::get('suppliers/search', ['as' => 'manage.suppliers.search', 'uses' => 'SuppliersController@search']);
 	Route::get('suppliers/{id}/products/create', 'ProductsController@create');
 	Route::resource('suppliers', 'SuppliersController');
@@ -75,6 +78,7 @@ Route::group(['prefix' => 'manage/'], function () {
 	Route::get('products/search', ['as' => 'manage.products.search', 'uses' => 'ProductsController@search']);
 	Route::get('products/type/{type}', 'ProductsController@type');
 	Route::resource('subcategories', 'SubcategoriesController');
+	Route::get('suppliers/{id}/products', 'ProductsController@index');
 	Route::resource('products', 'ProductsController');
 	Route::get('orders/status/{status}', 'OrdersController@status');
 	Route::resource('orders', 'OrdersController');

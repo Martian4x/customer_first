@@ -158,7 +158,7 @@ class ProductsController extends Controller
     	}else{
 			return Redirect::back()->withMessage('You do not have Proper Privileges to perform such request..!')->with('flash_type', 'error');
     	}
-    	$vars['countries'] = User::countries_list();
+    	// $vars['countries'] = User::countries_list();
     	$vars['types'] = Product::types();
         // $vars['maincategories'] = Maincategory::lists('name', 'id')->toArray();
         // $vars['subcategories'] = Subcategory::lists('name', 'id')->toArray();

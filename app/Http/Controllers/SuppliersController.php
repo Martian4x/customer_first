@@ -17,25 +17,37 @@ use Illuminate\Support\Facades\Request as Request2;
 
 class SuppliersController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth', ['except' => ['register','store']]);
-		$this->middleware(['admin','staff'], ['only' => 'index','destroy','search','status','verify']);
-		// $this->middleware('supplier', ['except' => ['register','store']]);
-    }
+	public function __construct()
+	{
+		$this->middleware('auth', ['except' => ['register','store']]);
+	$this->middleware(['admin','staff'], ['only' => 'index','destroy','search','status','verify']);
+	// $this->middleware('supplier', ['except' => ['register','store']]);
+	}
 
-    public function register()
-    {
-    	$vars['countries'] = User::countries_list();
-        $vars['title'] = 'Supplier';
-        $vars['sub_title'] = 'Create a supplier account';
-        return view('auth.supplier_register', compact('vars'));
-    }
+	public function register()
+	{
+	$vars['countries'] = User::countries_list();
+		$vars['title'] = 'Supplier';
+		$vars['sub_title'] = 'Create a supplier account';
+		return view('auth.supplier_register', compact('vars'));
+	}
 
-    public function dashboard()
-    {
-    	
-    }
+	public function dashboard()
+	{
+	
+	}
+
+	public function customers($id)
+	{	
+		if(\Auth::user()->role != 'Admin' && \Auth::user()->role != 'Staff'){
+			return Redirect::back()->withMessage('You do not have Proper Privileges to perform such request..!')->with('flash_type', 'error');
+		}
+		
+		$vars['title'] = 'Users';
+		$vars['sub_title'] = 'All System Users';
+		$vars['users'] = User::all();
+		return view('manage.users.index', compact('vars'));
+	}
 
 	public function index()
 	{	

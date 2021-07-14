@@ -26,9 +26,19 @@ class DashboardController extends Controller
     
     public function index()
     {
-        $vars['users'] = User::all()->count();
+        if(\Auth::user()->role == 'Admin'||\Auth::user()->role == 'Staff'){
+            $vars['products'] = Product::whereBadge($badge)->paginate(30);
+        }
+        elseif(\Auth::user()->role == 'Supplier'){
+            // $vars['supplier'] = \Auth::user()->supplier;
+            // $vars['products'] = $vars['supplier']->products()->whereBadge($badge)->paginate(30);
+            // $vars['customers'] = User::->count();
+            $vars['customers'] = User::all()->count();
+            return view('manage.dashboards.supplier', compact('vars', $vars));
+        }else{
+            return Redirect::back()->withMessage('You do not have Proper Privileges to perform such request..!')->with('flash_type', 'error');
+        }
         // dd($vars['users']);
-        return view('manage.dashboard', compact('vars', $vars));
     }
 
     //Browse by badge

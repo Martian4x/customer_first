@@ -26,7 +26,7 @@
             <div class="col-md-9">
 
                 <!-- Horizontal Form -->
-                <div class="panel panel-brown margin-bottom-40">
+                <div class="panel panel-blue margin-bottom-40">
                     <div class="panel-heading">
                         <h5 class="panel-title"><i class="icon-justify"></i>{{ $vars['title'] }} | {{ $vars['sub_title'] }}  </h5>
                     </div>
@@ -37,7 +37,7 @@
 
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
-                                    <button type="submit" class="btn-u btn-u-brown">Save</button>
+                                    <button type="submit" class="btn-u btn-u-blue">Save</button>
                                 </div>
                             </div>
                         {!! Form::close() !!}

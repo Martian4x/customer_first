@@ -79,21 +79,21 @@
 </div>
 
 <div class="form-group">
-    <div class="col-lg-6">
+    {{-- <div class="col-lg-6">
         <label for="inputEmail1" class="col-lg-2 control-label">Product Location</label>
         <div class="col-lg-10">
             {!! Form::text('product_address', null, ['placeholder'=>'Leave black if same as supplier address', 'class'=>'form-control', 'id'=>'product_address']) !!} 
             {!! $errors->first('product_address', '<small class="error">:message</small>') !!}
         </div>
-    </div>
+    </div> --}}
 
-    <div class="col-lg-6">
+    {{-- <div class="col-lg-6">
         <label for="inputEmail1" class="col-lg-2 control-label">Min Order<span class="red">*</span></label>
         <div class="col-lg-10">
             {!! Form::number('min_quantity', null, ['placeholder'=>'Min order required', 'class'=>'form-control', 'min'=>0, 'id'=>'min_quantity']) !!} 
             {!! $errors->first('min_quantity', '<small class="error">:message</small>') !!}
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <div class="form-group">

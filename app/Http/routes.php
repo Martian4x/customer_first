@@ -57,6 +57,8 @@ Route::group(['prefix' => 'manage/'], function () {
 	Route::get('suppliers/status/{status}', 'SuppliersController@status');
 	Route::get('supplier', 'DashboardController@index');
 	Route::get('suppliers/{id}/verify', 'SuppliersController@verify');
+	// Customers
+	Route::get('suppliers/{id}/customers', 'SuppliersController@customers');
 	Route::get('suppliers/search', ['as' => 'manage.suppliers.search', 'uses' => 'SuppliersController@search']);
 	Route::get('suppliers/{id}/products/create', 'ProductsController@create');
 	Route::resource('suppliers', 'SuppliersController');
@@ -84,21 +86,15 @@ Route::group(['prefix' => 'manage/'], function () {
 	//type ajax fetch main categories
 	Route::get('/ajax-product_type', function(){
 		$type_name = Input::get('type_name');
-
 		$maincategories = \App\Maincategory::whereType($type_name)->get();
-
 		return Response::json($maincategories);
-
 	});
 
 	//type ajax fetch sub categories
 	Route::get('/ajax-maincategory', function(){
 		$maincategory_id = Input::get('maincategory_id');
-
 		$subcategories = \App\Subcategory::whereMaincategoryId($maincategory_id)->get();
-
 		return Response::json($subcategories);
-
 	});
 });
 
@@ -110,7 +106,6 @@ Route::post('/checking/email_username', function(Request $request){
  	if($request->username!=''){
  		// return Response::json('username');
  		if (\App\User::whereUsername($request->username)->where('id','!=',$request->user_id)->exists()){
-
 	        $response['responseUsername'] = ['messageUsername'=>'<span class="red"> <i class="fa fa-times"></i> Sorry '.$request->username.' is already taken</span>', 'statusUsername'=>'failed'];
 	    }else{
 	        $response['responseUsername'] = ['messageUsername'=>'<span class="green"> <i class="fa fa-check"></i> '.$request->username.' is available</span>', 'statusUsername'=>'success'];
@@ -129,6 +124,5 @@ Route::post('/checking/email_username', function(Request $request){
 	}else{
 		$response['responseEmail'] = [];
 	}
-
 	return Response::json($response);
 });

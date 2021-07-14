@@ -28,6 +28,11 @@ class Supplier extends Model
     	return $this->belongsTo('\App\User','entered_by_id');
     }
 
+    public function customers()
+    {
+        return $this->belongsToMany('App\User', 'supplier_user', 'supplier_id', 'user_id');
+    }
+
     public function ribbon_color($value)
     {
         if($value == 'Hot'){

@@ -43,7 +43,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function suppliers() // Other users he entered
+    public function suppliers_entered() // Other users he entered
     {
         return $this->hasMany('\App\Supplier', 'entered_by_id');
     }
@@ -66,6 +66,11 @@ class User extends Authenticatable
     public function supplier() // 
     {
         return $this->hasOne('\App\Supplier','user_id');
+    }
+
+    public function suppliers()
+    {
+        return $this->belongsToMany('App\Supplier', 'supplier_user', 'user_id', 'supplier_id');
     }
 
     public function subtotal($cart_list)

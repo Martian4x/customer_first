@@ -1,1 +1,7 @@
 - Regex phonenumber to have 255 and remove 0
+- OTP for users
+- * retrive pin id from db
+- Two-way messang
+- Payment Collections
+- Disbursements
+- Airtime rewards

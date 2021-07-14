@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'email', 'password', 'company', 'img','img_url', 'user_group_id', 'lang', 'address', 'mob_no', 'tel_no', 'country', 'role', 'verified', 'status', 'description'
+        'fname', 'lname', 'email', 'password', 'company', 'img','img_url', 'user_group_id', 'lang', 'address', 'mob_no_verified', 'mob_no', 'tel_no', 'country', 'role', 'verified', 'status', 'description'
     ];
 
     public static function countries_list()

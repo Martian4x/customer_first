@@ -20,9 +20,11 @@
     @yield('content')
 
     @include('layouts.footer')
+    @include('layouts.footer')
 
 </div><!--/End Wrapepr-->
 
+    @include('modals.mob_no_otp')
     @include('layouts.scripts')
     
 

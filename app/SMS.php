@@ -24,7 +24,7 @@ class SMS extends Model
         );
 
         $Url ='https://apisms.beem.africa/v1/send';
-        $ch = curl_init($Url);
+        $ch = curl_init($Url);  
         error_reporting(E_ALL);
         ini_set('display_errors', 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);

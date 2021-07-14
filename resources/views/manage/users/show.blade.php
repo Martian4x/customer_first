@@ -33,7 +33,7 @@
                     </div>
                         <dl class="dl-horizontal">
                             <dt>Full Name</dt>
-                            <dd>{{ $vars['user']->name }} {{ $vars['user']->lname }}</dd>
+                            <dd>{{ $vars['user']->fname }} {{ $vars['user']->lname }}</dd>
                             <dt>Username</dt>
                             <dd>{{ $vars['user']->username }}</dd>
                             <dt>Email</dt>
@@ -41,7 +41,7 @@
                             <dt>Address</dt>
                             <dd>{{ $vars['user']->address }}</dd>
                             <dt>Mobile</dt>
-                            <dd>{{ $vars['user']->mob_no }}</dd>
+                            <dd>{{ $vars['user']->mob_no }} @if($vars['user']->mob_no_verified!='Yes')<button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#mob_no_otp_modal">Verify Number</button>@else <span title="Mobile Number Verified"><i class="fa fa-check-circle green"></i></span> @endif</dd>
                             <dt>Role</dt>
                             <dd>{{ $vars['user']->role }}</dd>
                             <dt>Status</dt>

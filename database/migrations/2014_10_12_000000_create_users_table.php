@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('mob_no', 50)->nullable(); 
             $table->string('tel_no', 50)->nullable();
             $table->string('country')->nullable();
-            $table->enum('verified', ['Yes','No'])->default('No');
+            $table->enum('mob_no_verified', ['Yes','No'])->default('No');
             $table->enum('status', ['Active','Banned','Pending','Inactive'])->default('Active');
             $table->enum('role', ['User','Staff','Supplier','Supplier_Staff','Admin'])->default('User');
             $table->text('description')->nullable();

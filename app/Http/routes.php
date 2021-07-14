@@ -53,6 +53,8 @@ Route::group(['prefix' => 'manage/'], function () {
 	Route::get('/', 'DashboardController@index');
 	Route::get('users/search', ['as' => 'manage.users.search', 'uses' => 'UsersController@search']);
 	Route::get('users/{id}/orders', 'UsersController@user_orders');
+	Route::post('/users/ajax_request_otp', 'UsersController@request_otp');
+	Route::post('/users/ajax_verify_mob_no', 'UsersController@verify_mob_no');
 	Route::resource('users', 'UsersController');
 	Route::get('suppliers/status/{status}', 'SuppliersController@status');
 	Route::get('supplier', 'DashboardController@index');

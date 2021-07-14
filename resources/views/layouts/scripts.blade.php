@@ -199,6 +199,7 @@
 @endif 
 <!-- JS Customization -->
 <script type="text/javascript" src="{{ url('/') }}/assets/js/custom.js"></script>
+<script type="text/javascript" src="{{ url('/') }}/assets/js/js_functions.js"></script>
 {{-- <script type="text/javascript" src="{{ url('/') }}/assets/js/dropzone-config.js"></script> --}}
 <!-- JS Page Level -->
 <script type="text/javascript" src="{{ url('/') }}/assets/js/app.js"></script>

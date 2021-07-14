@@ -136,6 +136,39 @@ class UsersController extends Controller
 		return view('manage.users.show', compact('vars',$user));
 	}
 
+	public function request_otp(Request $request)
+	{
+		//User
+		// return $request->user_id;
+		$user = User::find($request->user_id);
+		if($user){
+			$feedback = \App\OTP::requstOTP($user->mob_no);
+			\App\Otp_request::create(['user_id'=>$user->id,'json_feedback'=>$feedback]);
+			return $feedback;
+		}
+		return false;
+	}
+
+	public function verify_mob_no(Request $request)
+	{
+		// $input = $request->all();
+		// return $input;
+		$user = User::find($request->user_id);
+		// if($request->pin_id==null){
+		// }
+		if($user&&$request->pin_id!=null){
+			$feedback = \App\OTP::verifyOTP($request->otp, $request->pin_id);
+			\App\Otp_request::create(['user_id'=>$user->id,'json_feedback'=>$feedback]);
+			$feedback = json_decode($feedback, true);
+			if($feedback&&$feedback['data']['message']['code']==117){
+				$user->update(['mob_no_verified'=>'Yes']);
+			}
+			return $feedback;
+		}
+		// 
+		return false;
+	}
+
 
 	public function user_orders($id) // User id
 	{

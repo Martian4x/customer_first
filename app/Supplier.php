@@ -38,6 +38,16 @@ class Supplier extends Model
         return $this->belongsToMany('App\User', 'supplier_user', 'supplier_id', 'user_id');
     }
 
+    public function partners()
+    {
+        return $this->belongsToMany('App\User', 'supplier_partner', 'supplier_id', 'user_id');
+    }
+
+    public function couriers()
+    {
+        return $this->belongsToMany('App\User', 'supplier_courier', 'supplier_id', 'user_id');
+    }
+
     public function getMsg($name, $lang=null)
     {
         return $this->messages()->whereName(strtolower($name))->whereLang($lang)->latest()->first();

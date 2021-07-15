@@ -19,6 +19,7 @@ class SuppliersController extends Controller
 {
 	public function __construct()
 	{
+		$this->middleware('auth');
 		// $this->middleware('auth', ['except' => ['register','store']]);
 		// $this->middleware(['admin','staff'], ['only' => 'index','destroy','search','status','verify']);
 	// $this->middleware('supplier', ['except' => ['register','store']]);
@@ -50,6 +51,35 @@ class SuppliersController extends Controller
 		$vars['users'] = $supplier->customers;
 		// dd($vars);
 		return view('manage.customers.index', compact('vars'));
+	}
+
+	public function couriers($id)
+	{	
+		
+		// dd('die');
+		if(\Auth::user()->role != 'Admin' && \Auth::user()->role != 'Staff' && \Auth::user()->role != 'Supplier'){
+			return Redirect::back()->withMessage('You do not have Proper Privileges to perform such request..!')->with('flash_type', 'error');
+		}
+		$supplier = Supplier::whereUserId(\Auth::id())->first();
+		$vars['title'] = 'couriers';
+		$vars['sub_title'] = $supplier->company_name.'\'s couriers';
+		$vars['users'] = $supplier->couriers;
+		// dd($vars);
+		return view('manage.couriers.index', compact('vars'));
+	}
+
+	public function partners($id)
+	{	
+		// dd('die');
+		if(\Auth::user()->role != 'Admin' && \Auth::user()->role != 'Staff' && \Auth::user()->role != 'Supplier'){
+			return Redirect::back()->withMessage('You do not have Proper Privileges to perform such request..!')->with('flash_type', 'error');
+		}
+		$supplier = Supplier::whereUserId(\Auth::id())->first();
+		$vars['title'] = 'Partners';
+		$vars['sub_title'] = $supplier->company_name.'\'s partners';
+		$vars['users'] = $supplier->partners;
+		// dd($vars);
+		return view('manage.partners.index', compact('vars'));
 	}
 
 	public function index()

@@ -9,3 +9,7 @@
 - Payment Collections
 - Disbursements
 - Airtime rewards
+
+db: martian4_customer
+db user: martian4_customer
+db pass: XAynfDpm82y

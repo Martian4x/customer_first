@@ -82,6 +82,25 @@ class SMSController extends Controller
 		return false;
 	}
 
+   public function two_way()
+   {
+       $data = file_get_contents('http://customer.martian4x.com/manage/sms/two_way_callback');
+       $data = json_decode($data, true);
+       $source_addr=$data['from'];
+       $dest_addr=$data['to'];
+       $channel=$data['channel'];
+       $timestamp=$data['timeUTC'];
+       $id=$data['transaction_id'];
+       $message=$data['message'];
+       $billing=$data['billing'];
+       $res= array('transaction_id' => $id, 'successful'=> true);
+       $json = json_encode($res);
+       echo $json;
+       // save to db
+       $inbout_sms = \App\TwoWaySms::create($data);
+   }
+
+
     public function destroy($id)
     {
 		if(\Auth::user()->role != 'Admin'){

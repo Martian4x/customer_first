@@ -26,21 +26,23 @@ class DashboardController extends Controller
     
     public function index()
     {
+        // $vars = [];
         // dd(\Auth::user()->role);
         if(\Auth::user()->role == 'Admin'||\Auth::user()->role == 'Staff'){
             // $vars['products'] = Product::whereBadge($badge)->paginate(30);
             $vars['title'] = 'Dashboard';
             $vars['sub_title'] = 'Admin Dashboard';
-            return view('manage.dashboards.admin', compact('vars', $vars));
+            return view('manage.dashboards.admin', array('vars'=>$vars));
         }
         elseif(\Auth::user()->role == 'Supplier'){
-            $vars['title'] = 'Business';
-            $vars['sub_title'] = 'Admin Business';
+            $vars['title'] = "Business";
+            $vars['sub_title'] = "Admin Business";
             // $vars['supplier'] = \Auth::user()->supplier;
             // $vars['products'] = $vars['supplier']->products()->whereBadge($badge)->paginate(30);
             // $vars['customers'] = User::->count();
-            $vars['customers'] = User::all()->count();
-            return view('manage.dashboards.supplier', compact('vars', $vars));
+            $vars['supplier'] = \App\Supplier::whereUserId(\Auth::id())->first();
+            $vars['customers'] = $vars['supplier']->customers()->count();
+            return view('manage.dashboards.supplier', array('vars'=>$vars));
         }else{
             return Redirect::back()->withMessage('You do not have Proper Privileges to perform such request..!')->with('flash_type', 'error');
         }

@@ -73,7 +73,7 @@
                                           <div class="inline-group">
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="customers"><i class="rounded-x"></i>Customers</label>
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="couries"><i class="rounded-x"></i>Couries</label>
-                                              <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="partiners"><i class="rounded-x"></i>Partiners</label>
+                                              <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="partners"><i class="rounded-x"></i>Partners</label>
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="all_contacts"><i class="rounded-x"></i>All Contacts</label>
                                           </div>
                                       </section>

@@ -12,7 +12,7 @@
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/orders"> <i class="fa fa-star-o"></i> &nbsp; Orders</a></li>
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/polls"> <i class="fa fa-wechat"></i> &nbsp; Polls</a></li>
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/couriers"> <i class="fa fa-motorcycle"></i> &nbsp; Couriers</a></li>
-        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/suppliers"> <i class="fa fa-truck"></i> &nbsp; Suppliers</a></li>
+        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/partners"> <i class="fa fa-truck"></i> &nbsp; Partners/Suppliers</a></li>
 
         <!-- Messages -->
         <li class="list-group-item"><a href="/manage/suppliers/sms"> <i class="fa fa-wechat"></i> &nbsp; SMS</a></li>

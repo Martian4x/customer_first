@@ -78,9 +78,20 @@ Route::group(['prefix' => 'manage/'], function () {
 	});
 	Route::resource('customers', 'CustomersController');
 	
+	// couriers
+	Route::get('suppliers/{id}/couriers', 'SuppliersController@couriers');
+	Route::get('suppliers/couriers/create', 'CouriersController@create');
+	Route::resource('couriers', 'CouriersController');
+	
+	// partners
+	Route::get('suppliers/{id}/partners', 'SuppliersController@partners');
+	Route::get('suppliers/partners/create', 'PartnersController@create');
+	Route::resource('partners', 'PartnersController');
+	
 	// SMS
 	Route::post('/sms/ajax_check_balance', 'SMSController@check_balance');
 	Route::post('/sms/ajax_send_bulk', 'SMSController@send_bulk');
+	Route::post('/sms/two_way_callback', 'SMSController@two_way');
 	Route::get('suppliers/sms', 'SMSController@dashboard');
 
 	Route::get('suppliers/search', ['as' => 'manage.suppliers.search', 'uses' => 'SuppliersController@search']);

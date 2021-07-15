@@ -20,7 +20,7 @@ $(".sms_recepients_radio").change(function() {
   if(this.value!='all_contacts'){
 	  $('.sms_recepient_select_div').show('slow');
 	  $.get("/manage/customers/ajax-to-array?supplier_id=" + supplier_id+"&recepients_type=" + recepients_type, function (data) {
-		console.log(data);
+		// console.log(data);
 		// $("#sms_recepient_select").empty();
 		$("#sms_recepient_select").append(
 		  '<option value="all_customers"> All Customers </option>'

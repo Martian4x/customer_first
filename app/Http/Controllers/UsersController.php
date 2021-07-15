@@ -120,7 +120,7 @@ class UsersController extends Controller
 		}
 		$user->password = password_hash(Input::get('password'), PASSWORD_BCRYPT, ['cost' => 10]);
 		$user->address = Input::get('address');
-		$user->mob_no = Input::get('mob_no');
+		$user->mob_no = preg_replace('/^(?:\+?255|0)?/','255', Input::get('mob_no'));
 		$user->status = 'Active';
 		$user->description = Input::get('description');
 		$user->save();
@@ -328,7 +328,8 @@ class UsersController extends Controller
 		$user->lname = Input::get('lname');
 		$user->email = Input::get('email');
 		$user->address = Input::get('address');
-		$user->mob_no = Input::get('mob_no'); 
+		// $user->mob_no = Input::get('mob_no'); 
+		$user->mob_no = preg_replace('/^(?:\+?255|0)?/','255', Input::get('mob_no'));
 		$user->description = Input::get('description');
 		if(\Auth::user()->role == 'Admin' || \Auth::user()->role == 'Staff'){
 			$user->status = Input::get('status');

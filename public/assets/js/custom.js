@@ -22,9 +22,9 @@ $(".sms_recepients_radio").change(function() {
 	  $.get("/manage/customers/ajax-to-array?supplier_id=" + supplier_id+"&recepients_type=" + recepients_type, function (data) {
 		// console.log(data);
 		// $("#sms_recepient_select").empty();
-		$("#sms_recepient_select").append(
-		  '<option value="all_customers"> All Customers </option>'
-		);
+		// $("#sms_recepient_select").append(
+		//   '<option value="all_customers"> All Customers </option>'
+		// );
 		$.each(data, function (index, name) {
 		  $("#sms_recepient_select").append(
 			 '<option value="' + index + '">' + name + "</option>"

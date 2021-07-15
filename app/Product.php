@@ -76,6 +76,11 @@ class Product extends Model
         return $this->hasOne('\App\Mineral','product_id');
     }
 
+    public function food() // 
+    {
+        return $this->hasOne('\App\Food','product_id');
+    }
+
     public function textile() // 
     {
         return $this->hasOne('\App\Textile','product_id');

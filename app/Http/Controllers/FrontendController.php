@@ -127,7 +127,7 @@ class FrontendController extends Controller
 
     public function show_product($id)
     {
-		$product = Product::whereSlug($id)->first();
+		$product = Product::with('photos')->whereSlug($id)->first();
         if($product == null){
             $product = Product::find($id);
         }
@@ -139,7 +139,7 @@ class FrontendController extends Controller
     	$vars['product'] = $product;
     	$vars['products'] = $product->maincategory->products->take(6);
 
-    	// dd($vars['products']);
+    	// dd($vars['product']);
         return view('frontend.products.show', compact('vars',$vars));
     }
 

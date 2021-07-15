@@ -34,7 +34,7 @@
                            <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">SMS</a></li>
                            <li class=""><a href="#bulk_sms" data-toggle="tab" aria-expanded="false">Send SMS</a></li>
                            <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false">Messages</a></li>
-                           <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">Settings</a></li>
+                           <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">History</a></li>
                         </ul>
                         <div class="tab-content">
                               <div class="tab-pane fade active in" id="home">
@@ -67,12 +67,12 @@
                                     
                                  <form action="#" class="sky-form"  style="margin-bottom: 30px">
                                     <fieldset>
-                                       <p class="send_sms_msg">error message</p>
+                                       <p class="send_sms_msg" style="display: none"></p>
                                        <section>
                                           <label class="label">Send To</label>
                                           <div class="inline-group">
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="customers"><i class="rounded-x"></i>Customers</label>
-                                              <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="couries"><i class="rounded-x"></i>Couries</label>
+                                              <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="couriers"><i class="rounded-x"></i>Couriers</label>
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="partners"><i class="rounded-x"></i>Partners</label>
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="all_contacts"><i class="rounded-x"></i>All Contacts</label>
                                           </div>
@@ -91,16 +91,16 @@
                                     <a href="javascript:;" onclick="saveSMSComposer()" class="btn-u btn-u-blue"> <i class="fa fa-save"></i> Draft</a>
                                     <a href="javascript:;" onclick="sendSMSComposer()" class="btn-u pull-right"> <i class="fa fa-send-o"></i> Send</a>
                                     {{-- <button type="submit" class="btn-u pull-right"> <i class="fa fa-send-o"></i> Send</button> --}}
-                                    
                                  </form>
                               </div>
                               <div class="tab-pane fade" id="messages">
-                                    <h4>Heading Sample 3</h4>
-                                    <p><img alt="" class="pull-right rgt-img-margin img-width-200" src="assets/img/main/img18.jpg"> <strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                                    <h4>Conversations</h4>
+                                    <h5>The receiving number is: <strong>15320</strong>, Must have a preceding keyword <strong>BEEM/CUSTOMER</strong></h5>
+                                    <em><small>No Messages</small></em>
                               </div>
                               <div class="tab-pane fade" id="settings">
-                                    <h4>Heading Sample 4</h4>
-                                    <p><img alt="" class="pull-right rgt-img-margin img-width-200" src="assets/img/main/img24.jpg"> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                                    <h4>SMS History</h4>
+                                    <em><small>No sms</small></em>
                               </div>
                         </div>
                   </div>

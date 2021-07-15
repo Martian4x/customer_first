@@ -68,14 +68,19 @@ class User extends Authenticatable
         return $this->hasMany('\App\Product', 'entered_by_id');
     }
 
-    public function supplier() // su
+    public function supplier() // User's Supplier Account
     {
         return $this->hasOne('\App\Supplier','user_id');
     }
 
-    public function suppliers()
+    public function suppliers() // 
     {
         return $this->belongsToMany('App\Supplier', 'supplier_user', 'user_id', 'supplier_id');
+    }
+
+    public function is_couriers() // 
+    {
+        return $this->belongsToMany('App\Supplier', 'supplier_courier', 'user_id', 'supplier_id');
     }
 
     public function subtotal($cart_list)

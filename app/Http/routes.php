@@ -73,6 +73,18 @@ Route::group(['prefix' => 'manage/'], function () {
 					$recepients_array[$customer->id] = $customer->fname.' '.$customer->lname.' ('.$customer->mob_no.')';
 				}
 			}
+			if(\Input::get('recepients_type')=='couriers'){
+				$couriers = $supplier->couriers;
+				foreach($couriers as $courier){
+					$recepients_array[$courier->id] = $courier->fname.' '.$courier->lname.' ('.$courier->mob_no.')';
+				}
+			}
+			if(\Input::get('recepients_type')=='partners'){
+				$partners = $supplier->partners;
+				foreach($partners as $partner){
+					$recepients_array[$partner->id] = $partner->fname.' '.$partner->lname.' ('.$partner->mob_no.')';
+				}
+			}
 		}
 		return Response::json($recepients_array);
 	});

@@ -77,7 +77,7 @@ function sendSMSComposer(){
    var recepients = $("#sms_recepient_select").val();
    var body = $('textarea#message_body').val();
    var supplier_id = $("#global_supplier_id").val();
-   console.log(body);
+   // console.log(body);
    // console.log(recepients);
    $('.send_sms_feedback').html('').hide('slow');
    if(recepients==''||body==''){
@@ -101,7 +101,7 @@ function sendSMSComposer(){
          /* remind that 'data' is the response of the AjaxController */
          success: function (data) {
             // {"successful":true,"request_id":36331663,"code":100,"message":"Message Submitted Successfully","valid":3,"invalid":0,"duplicates":0}
-         //   console.log(data);
+           console.log(data);
            if(data!=false&&data.code=='100'){
             $('.send_sms_feedback').html(`Message: <span class="green">${data.message}</span> |  
             Request Id: <span class="">${data.request_id}</span> | 

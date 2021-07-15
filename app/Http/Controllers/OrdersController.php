@@ -59,8 +59,8 @@ class OrdersController extends Controller
 		return view('manage.orders.index', compact('vars'));
 	}
 
-    public function store(OrderRequest $request)
-    {
+   public function store(OrderRequest $request)
+   {
     	$input = $request->all();
     	$order = Order::latest()->select('id')->first();
     	// dd($order->id); 

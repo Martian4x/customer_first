@@ -74,3 +74,30 @@ function verifyOTP(user_id){
        });
    }
 }
+
+function checkBalance(){
+      var CSRF_TOKEN = $('meta[name="_token"]').attr("content");
+      $(".sms_balance_check_btn").html('<i class="icon-append fa fa-spinner fa-spin fa-fw"></i> Checking..');
+     /* send the csrf-token and the input to the controller */
+      $.ajax({
+         /* the route pointing to the post function */
+         url: "/manage/sms/ajax_check_balance",
+         type: "POST",
+         data: {
+           _token: CSRF_TOKEN,
+         },
+         dataType: "JSON",
+         success: function (data) {
+            $(".sms_balance_check_btn").html('<i class="fa fa-spinner"></i>');
+           console.log(data);
+         $('.sms_balance_badge').html(data.data.credit_balance);
+         },
+         error: function (xhr, ajaxOptions, thrownError) {
+            $(".sms_balance_check_btn").html('<i class="fa fa-times"></i>');
+           //On error, we alert user
+           console.log(xhr.responseText);
+           // alert('Error: You can not delete that data because it is linked with other data');
+         //   show_alert("danger", "Action failed, " + xhr.responseText);
+         },
+       });
+}

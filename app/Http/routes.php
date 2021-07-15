@@ -79,6 +79,7 @@ Route::group(['prefix' => 'manage/'], function () {
 	Route::resource('customers', 'CustomersController');
 	
 	// SMS
+	Route::post('/sms/ajax_check_balance', 'SMSController@check_balance');
 	Route::get('suppliers/sms', 'SMSController@dashboard');
 
 	Route::get('suppliers/search', ['as' => 'manage.suppliers.search', 'uses' => 'SuppliersController@search']);

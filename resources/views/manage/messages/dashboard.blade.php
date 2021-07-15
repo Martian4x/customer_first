@@ -41,8 +41,9 @@
                                  <div class="row">
                                        <div class="counters col-md-3 col-sm-3">
                                              <span class="counter-icon"><i class="fa fa-fax rounded"></i></span>
-                                             <span class="counter">0</span>
-                                             <h4>Balance</h4>
+                                             <span class="counter sms_balance_badge ">0</span>
+                                             <h4>Balance <a href="javascript:;" onclick="checkBalance()" title="Update Balance" class="sms_balance_check_btn"><i class="fa fa-spinner"></i></a></h4>
+
                                        </div>
                                        <div class="counters col-md-3 col-sm-3">
                                              <span class="counter-icon"><i class="fa  fa-envelope-o rounded"></i></span>

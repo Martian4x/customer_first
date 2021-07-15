@@ -45,6 +45,43 @@ class SMSController extends Controller
 		return false;
 	}
 
+	public function send_bulk(Request $request)
+	{
+      $input = $request->all();
+
+      if(isset($input['body'])){
+         $message = $input['body'];
+      }
+      
+      $recepients = [];
+      $recepients_list = \App\User::whereIn('id', array_values($input['recepients']))->pluck('mob_no')->toArray();
+      foreach($recepients_list as $key=>$mob_no){
+         $recepient = [];
+         $id = $key=1;
+         $recepient['recipient_id'] = (string)$id;
+         $recepient['dest_addr'] = preg_replace('/^(?:\+?255|0)?/','255', $mob_no);
+         $recepients[] = $recepient;
+      }
+      // $recepients = [$recepients;
+      // dd('die');
+      // return [$recepients];
+      // $recepients = [['recipient_id' => '1','dest_addr'=>'255756056007'],array('recipient_id' => '2','dest_addr'=>'255625595618')];
+      // return $recepients;
+
+      $feedback = \App\SMS::send($recepients, $message);  
+      // unserialize($recepients);
+      $sms_request = \App\SmsSendRequest::create(['user_id'=>\Auth::id(),'recepients'=>serialize($recepients),'message'=>$message]);
+      // Save Request;
+		if($feedback){
+         if($sms_request){
+            $sms_request->update(['json_feedback'=>json_encode($feedback)]);
+         }
+         return $feedback;
+		}
+		// 
+		return false;
+	}
+
     public function destroy($id)
     {
 		if(\Auth::user()->role != 'Admin'){

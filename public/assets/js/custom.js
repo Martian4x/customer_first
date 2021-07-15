@@ -15,7 +15,8 @@ $(".sms_recepients_radio").change(function() {
 //   console.log(this.value);
   var supplier_id = $('#global_supplier_id').val();
   var recepients_type = this.value;
-  console.log(recepients_type);
+//   console.log(recepients_type);
+  $('.send_sms_feedback').html('').hide('slow');
   if(this.value!='all_contacts'){
 	  $('.sms_recepient_select_div').show('slow');
 	  $.get("/manage/customers/ajax-to-array?supplier_id=" + supplier_id+"&recepients_type=" + recepients_type, function (data) {

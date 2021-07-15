@@ -65,12 +65,13 @@
                               <div class="tab-pane fade" id="bulk_sms">
                                     <h4>Create and Send SMS</h4>
                                     
-                                 <form action="#" class="sky-form  margin-bottom-10" >
+                                 <form action="#" class="sky-form"  style="margin-bottom: 30px">
                                     <fieldset>
+                                       <p class="send_sms_msg">error message</p>
                                        <section>
                                           <label class="label">Send To</label>
                                           <div class="inline-group">
-                                              <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="customers" checked><i class="rounded-x"></i>Customers</label>
+                                              <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="customers"><i class="rounded-x"></i>Customers</label>
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="couries"><i class="rounded-x"></i>Couries</label>
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="partiners"><i class="rounded-x"></i>Partiners</label>
                                               <label class="radio"><input type="radio" name="sms_recepients" class="sms_recepients_radio" value="all_contacts"><i class="rounded-x"></i>All Contacts</label>
@@ -78,14 +79,19 @@
                                       </section>
                                       
                                        <section class="sms_recepient_select_div">
-                                          <label class="label">Recepients:</label>
-                                          {!! Form::select('customers_recepient_select', ['All'=>'All']+$vars['supplier']->customers()->pluck('fname','id')->toArray(),null, ['class'=>'select2 form-control', 'multiple', 'id'=>'sms_recepient_select', 'style'=>'width:100%']) !!} 
+                                          <label class="label">Recepients: <small>You can select more that one contact</small> <a href="javascript:;" onclick="clearRecepients()" class="pull-right"><i class="fa fa-trash"></i> Clear All</a></label>
+                                          {!! Form::select('customers_recepient_select', [],null, ['class'=>'select2 form-control', 'multiple', 'id'=>'sms_recepient_select', 'style'=>'width:100%']) !!} 
                                        </section>
                                        <section>
                                           <label for="message_body"></label>
-                                          {!! Form::textarea('description', null,['placeholder'=>'Message Body', 'style'=>'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;', 'class'=>'form-control autogrow']) !!}
+                                          {!! Form::textarea('description', null,['placeholder'=>'Message Body', 'id'=>'message_body', 'style'=>'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;', 'class'=>'form-control autogrow']) !!}
                                        </section>
+                                       <p class="send_sms_feedback"></p>
                                     </fieldset>
+                                    <a href="javascript:;" onclick="saveSMSComposer()" class="btn-u btn-u-blue"> <i class="fa fa-save"></i> Draft</a>
+                                    <a href="javascript:;" onclick="sendSMSComposer()" class="btn-u pull-right"> <i class="fa fa-send-o"></i> Send</a>
+                                    {{-- <button type="submit" class="btn-u pull-right"> <i class="fa fa-send-o"></i> Send</button> --}}
+                                    
                                  </form>
                               </div>
                               <div class="tab-pane fade" id="messages">

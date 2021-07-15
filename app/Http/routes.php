@@ -80,6 +80,7 @@ Route::group(['prefix' => 'manage/'], function () {
 	
 	// SMS
 	Route::post('/sms/ajax_check_balance', 'SMSController@check_balance');
+	Route::post('/sms/ajax_send_bulk', 'SMSController@send_bulk');
 	Route::get('suppliers/sms', 'SMSController@dashboard');
 
 	Route::get('suppliers/search', ['as' => 'manage.suppliers.search', 'uses' => 'SuppliersController@search']);

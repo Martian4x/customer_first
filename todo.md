@@ -4,6 +4,7 @@
 // - OTP for users
 - * retrive pin id from db
 - Custom Bulk SMS
+   - Schedule time
 - Two-way messang
 - Payment Collections
 - Disbursements

@@ -12,6 +12,8 @@ class SMS extends Model
     
     public static function send($recepients, $message)
     {
+        // return $recepients;
+        // dd($recepients);
         $api_key='252d113e8d925e8c';
         $secret_key = 'ODcwMWY3NWE3ODdmNmYzMWUxM2Q1YmE0OTBjYWM1YWRkYjZkYjFlMmZiZDc2MjZlYzQwMWZmNGM4MDI1YjYyNg==';
         $postData = array(
@@ -22,6 +24,8 @@ class SMS extends Model
             'recipients' => $recepients
             // 'recipients' => [array('recipient_id' => '1','dest_addr'=>'255700000001'),array('recipient_id' => '2','dest_addr'=>'255700000011')]
         );
+
+        // return $postData;
 
         $Url ='https://apisms.beem.africa/v1/send';
         $ch = curl_init($Url);  
@@ -44,7 +48,8 @@ class SMS extends Model
                 echo $response;
             die(curl_error($ch));
         }
-        var_dump($response);
+        return $response;
+        // var_dump($response);
     }
 
     public static function balance()

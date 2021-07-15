@@ -43,6 +43,9 @@
 
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/shop.style.css">
 
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ url('/') }}/assets/plugins/select2/select2.min.css">
+  
     <!-- CSS Page Style -->
     @if(\Request::path()== 'login'||\Request::path()== 'register'||\Request::path()== 'supplier_register')
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/pages/page_log_reg_v1.css">
@@ -55,7 +58,7 @@
     @endif
     {{-- <link rel="stylesheet" href="{{ url('/') }}/assets/plugins/dropzone.css"> --}}
     
-    @if($view_name== 'suppliers.edit'||$view_name== 'products.edit'||$view_name== 'products.create'|| $view_name=='supplier_register'||$view_name== 'products.photos'||$view_name=='banners.create'||$view_name=='banners.edit')
+    @if($view_name== 'messages.dashboard'||$view_name== 'suppliers.edit'||$view_name== 'products.edit'||$view_name== 'products.create'|| $view_name=='supplier_register'||$view_name== 'products.photos'||$view_name=='banners.create'||$view_name=='banners.edit')
         <link rel="stylesheet" href="{{ url('/') }}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
         <link rel="stylesheet" href="{{ url('/') }}/assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
         <!--[if lt IE 9]><link rel="stylesheet" href="{{ url('/') }}/assets/plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css"><![endif]-->

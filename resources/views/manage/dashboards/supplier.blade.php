@@ -32,24 +32,24 @@
                     <!-- Counters -->
                         <div class="row">
                             <div class="counters col-md-3 col-sm-3">
-                                <span class="counter-icon"><i class="fa fa-music rounded"></i></span>
+                                <span class="counter-icon"><i class="fa fa-cubes rounded"></i></span>
                                 <span class="counter">0</span>
                                 <h4>Products</h4>
                             </div>
                             <div class="counters col-md-3 col-sm-3">
-                                <span class="counter-icon"><i class="fa fa-question rounded"></i></span>
+                                <span class="counter-icon"><i class="fa fa-star-o rounded"></i></span>
                                 <span class="counter">0</span>
                                 <h4>Orders</h4>
                             </div>
                             <div class="counters col-md-3 col-sm-3">
-                                <span class="counter-icon"><i class="fa fa-star-o rounded"></i></span>
+                                <span class="counter-icon"><i class="fa fa-files-o rounded"></i></span>
                                 <span class="counter">0</span>
-                                <h4>Suppliers</h4>
+                                <h4>Invoices</h4>
                             </div>
                             <div class="counters col-md-3 col-sm-3">
                                 <span class="counter-icon"><i class="fa fa-users rounded"></i></span>
                                 <span class="counter">0</span>
-                                <h4>Users</h4>
+                                <h4>Customers</h4>
                             </div>
                         </div>
                     </div>

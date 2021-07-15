@@ -109,14 +109,14 @@
                             <div class="panel-heading">
                                     <h4 class="panel-title">
                                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-Six">
-                                                <i class="fa fa-diamond"></i>    Minerals
+                                                <i class="fa fa-birthday-cake"></i>    Food
                                             </a>
                                     </h4>
                             </div>
                             <div id="collapse-Six" class="panel-collapse collapse">
                                     <div class="panel-body">
                                        <ul class="list-unstyled link-main-list">
-                                       @foreach($maincategories['mineral'] as $maincategory)
+                                       @foreach($maincategories['food'] as $maincategory)
                                            <li><a href="/products/maincategory/{{{ $maincategory->slug }}}">{{{ $maincategory->name }}} ({{{ $maincategory->products->count() }}})</a></li>
                                         @endforeach
                                        </ul>

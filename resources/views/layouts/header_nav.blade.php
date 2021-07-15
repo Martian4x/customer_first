@@ -1,6 +1,12 @@
 
 <div class="header header-v5">
 <div class="container">
+    @if(\Auth::check())
+    @if(isset(\Auth::user()->supplier))
+    <input type="hidden" id="global_supplier_id" value="{{\Auth::user()->supplier->id}}">
+    @endif
+    <input type="hidden" id="global_auth_user_id" value="{{\Auth::id()}}">
+    @endif
     <!-- Logo -->
     <a class="logo" href="/">
         <img src="{{ url('/') }}/assets/img/logo-bw.png" alt="sellyou">
@@ -128,10 +134,10 @@
 
             <li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                    Mineral
+                    Food
                 </a>
                 <ul class="dropdown-menu">
-                    @foreach($maincategories['mineral'] as $maincategory)
+                    @foreach($maincategories['food'] as $maincategory)
                         <li class="dropdown-submenu">
                                 <a href="javascript:void(0);">{{{ $maincategory->name }}}</a>
                             <ul class="dropdown-menu">
@@ -223,7 +229,7 @@
                 <div class="col-sm-7 col-sm-offset-1 md-margin-bottom-10" style="padding-right: 0">
                     <div class="input-group" style="width: 100%">
                         <span class="input-group-addon"><i class="fa  fa-search"></i></span>
-                        <input type="text" name="q" placeholder="What product you are looking for" class="form-control">
+                        <input type="text" name="q" placeholder="What are looking for" class="form-control">
                     </div>
                 </div>
                 <div class="col-sm-2" style="padding-left: 0">

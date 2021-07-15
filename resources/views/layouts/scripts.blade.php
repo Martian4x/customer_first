@@ -227,6 +227,16 @@
 <script src="{{ url('/') }}/assets/js/plugins/master-slider.js"></script>
 <script src="{{ url('/') }}/assets/js/forms/product-quantity.js"></script>
 
+<!-- Select2 -->
+<script src="{{ url('/') }}/assets/plugins/select2/select2.full.min.js"></script>
+<script>
+    $(function () {
+      //Initialize Select2 Elements
+        $(".select2").select2();
+        $(".temporaly-show").delay(5000).fadeOut('slow');
+    });
+</script>
+
 <!-- Check passwork confimation on registration -->
 <script type="text/javascript">
      @if(\Request::path()== 'register'||$view_name== 'supplier_register'||$view_name== 'manage.users.create'||$view_name== 'manage.users.edit')

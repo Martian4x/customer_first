@@ -363,3 +363,9 @@ pre{
 .cart-list .billing-info-inputs .form-control::-webkit-input-placeholder {
 	color: #888;
 }
+.sky-form fieldset {
+	display: block;
+	padding: 0px 10px 0px;
+	border: none;
+	background: rgba(255,255,255,.9);
+}

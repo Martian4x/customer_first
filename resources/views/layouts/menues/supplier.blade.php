@@ -6,16 +6,16 @@
         </li>
 
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/customers"> <i class="fa fa-users"></i> &nbsp; Customers</a></li>
-        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/invoices"> <i class="fa fa-users"></i> &nbsp; Invoices</a></li>
-        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/payments"> <i class="fa fa-users"></i> &nbsp; Payments</a></li>
-        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/products"> <i class="fa fa-tags"></i> &nbsp; Products</a></li>
+        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/invoices"> <i class="fa fa-files-o"></i> &nbsp; Invoices</a></li>
+        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/payments"> <i class="fa fa-money"></i> &nbsp; Payments</a></li>
+        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/products"> <i class="fa fa-cubes"></i> &nbsp; Products</a></li>
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/orders"> <i class="fa fa-star-o"></i> &nbsp; Orders</a></li>
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/polls"> <i class="fa fa-wechat"></i> &nbsp; Polls</a></li>
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/couriers"> <i class="fa fa-motorcycle"></i> &nbsp; Couriers</a></li>
-        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/suppliers"> <i class="fa fa-motorcycle"></i> &nbsp; Suppliers</a></li>
+        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/suppliers"> <i class="fa fa-truck"></i> &nbsp; Suppliers</a></li>
 
         <!-- Messages -->
-        <li class="list-group-item"><a href="/manage/messages"> <i class="fa fa-wechat"></i> &nbsp; Messages</a></li>
+        <li class="list-group-item"><a href="/manage/suppliers/sms"> <i class="fa fa-wechat"></i> &nbsp; SMS</a></li>
         <!-- End Messages -->
 
         <!-- Thumbails -->

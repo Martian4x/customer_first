@@ -61,7 +61,7 @@
                                 <td>{{ $user->fname }}</td>
                                 <td>{{ $user->lname }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->mob_no }}</td>
+                                <td>{{ $user->mob_no }} {!! $user->number_verified()!!}</td>
                                 <td> @if($user->user_group) {{ $user->user_group->name }} @endif</td>
                                 <td>{{ $user->status }}</td>
                                 <td>

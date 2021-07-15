@@ -41,7 +41,7 @@ class ViewComposerServiceProvider extends ServiceProvider
             $maincategories['clothing'] = Maincategory::whereType('Clothing')->get();
             $maincategories['textile'] = Maincategory::whereType('Textile')->get();
             $maincategories['crafts'] = Maincategory::whereType('Craft')->get();
-            $maincategories['mineral'] = Maincategory::whereType('Mineral')->get();
+            $maincategories['food'] = Maincategory::whereType('Food')->get();
             $maincategories['manufacturing'] = Maincategory::whereType('Manufacturing')->get();
             $maincategories['electronic'] = Maincategory::whereType('Electronic')->get();
 

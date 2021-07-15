@@ -62,7 +62,24 @@ Route::group(['prefix' => 'manage/'], function () {
 	// Customers
 	Route::get('suppliers/{id}/customers', 'SuppliersController@customers');
 	Route::get('suppliers/customers/create', 'CustomersController@create');
+	// Fetch referral people
+	Route::get('/customers/ajax-to-array', function(){
+		$supplier = \App\Supplier::find(\Input::get('supplier_id'));
+		if($supplier){
+			$recepients_array = [];
+			if(\Input::get('recepients_type')=='customers'){
+				$customers = $supplier->customers;
+				foreach($customers as $customer){
+					$recepients_array[$customer->id] = $customer->fname.' '.$customer->lname.' ('.$customer->mob_no.')';
+				}
+			}
+		}
+		return Response::json($recepients_array);
+	});
 	Route::resource('customers', 'CustomersController');
+	
+	// SMS
+	Route::get('suppliers/sms', 'SMSController@dashboard');
 
 	Route::get('suppliers/search', ['as' => 'manage.suppliers.search', 'uses' => 'SuppliersController@search']);
 	Route::get('suppliers/{id}/products/create', 'ProductsController@create');

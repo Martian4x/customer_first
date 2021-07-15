@@ -68,7 +68,7 @@ class User extends Authenticatable
         return $this->hasMany('\App\Product', 'entered_by_id');
     }
 
-    public function supplier() // 
+    public function supplier() // su
     {
         return $this->hasOne('\App\Supplier','user_id');
     }
@@ -84,6 +84,13 @@ class User extends Authenticatable
             $total[] = $cart->quantity*$cart->product->price_discount;
         }
         return array_sum($total);
+    }
+    
+    public function number_verified()
+    {
+        if($this->mob_no_verified=='Yes'){
+            return '<span title="Mobile Number Verified"><i class="fa fa-check-circle green"></i></span>';
+        }
     }
 
     public function send_sms($message)

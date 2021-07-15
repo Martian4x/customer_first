@@ -20,11 +20,11 @@
     @yield('content')
 
     @include('layouts.footer')
-    @include('layouts.footer')
 
 </div><!--/End Wrapepr-->
-
-    @include('modals.mob_no_otp')
+    @if(Auth::check())
+        @include('modals.mob_no_otp')
+    @endif
     @include('layouts.scripts')
     
 

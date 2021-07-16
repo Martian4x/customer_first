@@ -42,10 +42,13 @@
     <link rel='stylesheet' href="{{ url('/') }}/assets/plugins/master-slider/quick-start/masterslider/skins/default/style.css">
 
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/shop.style.css">
+    
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/pages/profile.css">
 
   <!-- Select2 -->
   <link rel="stylesheet" href="{{ url('/') }}/assets/plugins/select2/select2.min.css">
-  
+
     <!-- CSS Page Style -->
     @if(\Request::path()== 'login'||\Request::path()== 'register'||\Request::path()== 'supplier_register')
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/pages/page_log_reg_v1.css">

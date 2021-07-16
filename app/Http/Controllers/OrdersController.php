@@ -41,6 +41,23 @@ class OrdersController extends Controller
 		return view('manage.orders.index', compact('vars'));
 	}
 
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+	  $vars['supplier'] = \App\Supplier::whereUserId(\Auth::id())->first();
+	  $vars['supplier_customers'] = $vars['supplier']->customers()->get();
+	  $vars['supplier_couriers'] = $vars['supplier']->couriers()->get();
+	  $vars['supplier_products'] = $vars['supplier']->products()->get();
+	  // $vars['supplier'] = $supplier->id;
+	  $vars['title'] = 'Orders';
+	  $vars['sub_title'] = 'Add an order';
+	  return view('manage.orders.create', compact('vars'));
+	}
+
 	public function status($status)
 	{	
 		if(\Auth::user()->role == 'Admin'||\Auth::user()->role == 'Staff'){
@@ -73,6 +90,24 @@ class OrdersController extends Controller
     	}
 		$order = Order::create($input);
 		$carts = Cart::whereUserId($input['user_id'])->update(['order_id'=>$order->id]);
+		return redirect('/check_out')->withMessage('Order No:'. $order->order_no.' has been received successful, Now you can proceed with payments.')->with('flash_type', 'success');
+    }
+
+   public function supplier_store(OrderRequest $request)
+   {
+    	$input = $request->all();
+    	dd($input); 
+		 $input['user_id'] = $input['customer_id'];
+		 $input['supplier_id'] = \Auth::id();
+		//  $input['sub_total_price'] = Cart::subtotal(Cart::whereUserId($input['user_id'])->whereOrderId(null)->get());
+		 $input['sub_total_price'] = Cart::subtotal(Cart::whereUserId($input['user_id'])->whereOrderId(null)->get());
+    	$order = Order::create($input);
+		$input['order_id'] = $order->id;
+		$cart = Cart::create($input);
+		$carts = Cart::whereUserId($input['user_id'])->update(['order_id'=>$order->id]);
+
+		// Send SMS 
+		
 		return redirect('/check_out')->withMessage('Order No:'. $order->order_no.' has been received successful, Now you can proceed with payments.')->with('flash_type', 'success');
     }
 }

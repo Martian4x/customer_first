@@ -20,7 +20,7 @@
         </li> 
 
         <li class="list-group-item list-toggle">
-            <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-orders">  <i class="fa fa-star-o"></i> &nbsp; Orders Lists</a>
+            <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-orders">  <i class="fa fa-star-o"></i> &nbsp; Orders</a>
             <ul id="collapse-orders" class="collapse">
                 <li><a href="/manage/orders/status/new"><i class="fa fa-star-o"></i> &nbsp; New Orders</a></li>
                 <li><a href="/manage/orders/status/payment"><i class="fa fa-money"></i> &nbsp; On-payment Orders</a></li>

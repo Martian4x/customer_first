@@ -78,6 +78,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Supplier', 'supplier_user', 'user_id', 'supplier_id');
     }
 
+    public function getNameAttribute()
+    {
+        return $this->fname.' '.$this->lname;   
+    }
+
     public function is_couriers() // 
     {
         return $this->belongsToMany('App\Supplier', 'supplier_courier', 'user_id', 'supplier_id');

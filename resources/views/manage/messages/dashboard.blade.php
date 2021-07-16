@@ -94,9 +94,28 @@
                                  </form>
                               </div>
                               <div class="tab-pane fade" id="messages">
-                                    <h4>Conversations</h4>
-                                    <h5>The receiving number is: <strong>15320</strong>, Must have a preceding keyword <strong>BEEM/CUSTOMER</strong></h5>
-                                    <em><small>No Messages</small></em>
+                                 
+                            <div class="panel panel-profile">
+                              <div class="panel-heading overflow-h">
+                                  <h4 class="pull-left"><i class="fa fa-comments-o"></i> Discussions</h4>
+                              </div>
+                              <div id="scrollbar4" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                                 @foreach ($vars['supplier_two_messages'] as $msg)
+                                 <div class="comment">
+                                     <img src="assets/img/testimonials/img6.jpg" alt="">
+                                     <div class="overflow-h">
+                                         <strong>From: {{$msg->from_address}}<small class="pull-right"> {{$msg->timeUTC}}</small></strong>
+                                         <p>{{$msg->message}}</p>
+                                     </div>
+                                 </div>
+                                 <hr>
+                                     
+                                 @endforeach
+                                  
+                                  </div>
+                              </div>
+                          </div>
+
                               </div>
                               <div class="tab-pane fade" id="settings">
                                     <h4>SMS History</h4>

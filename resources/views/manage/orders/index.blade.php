@@ -26,7 +26,8 @@
                 <!--Basic Table-->
                 <div class="panel panel-default margin-bottom-40">
                     <div class="panel-heading">
-                        <h5 class="panel-title"><i class="fa fa-shopping-cart"></i>{{ $vars['title'] }} | {{ $vars['sub_title'] }}</h5>
+                        <h5 class="panel-title"><i class="fa fa-shopping-cart"></i>{{ $vars['title'] }} | {{ $vars['sub_title'] }}</h5>     
+                        <span><a href="/manage/suppliers/orders/create" class="pull-right list_plus_btn"><i class="fa fa-plus"></i> Add</a></span>
                     </div>
                     <table class="table table-striped table-hover">
                         <thead>

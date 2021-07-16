@@ -124,8 +124,15 @@ Route::group(['prefix' => 'manage/'], function () {
 	Route::resource('subcategories', 'SubcategoriesController');
 	Route::get('suppliers/{id}/products', 'ProductsController@index');
 	Route::resource('products', 'ProductsController');
+	
+	// Orders
 	Route::get('orders/status/{status}', 'OrdersController@status');
+	Route::get('suppliers/{id}/orders', 'OrdersController@index');
+	Route::get('suppliers/orders/create', 'OrdersController@create');
+	Route::get('checkout/callback', 'OrdersController@checkout_callback');
+	Route::post('orders/supplier_store', ['as' => 'manage.orders.supplier_store', 'uses' =>'OrdersController@supplier_store']);
 	Route::resource('orders', 'OrdersController');
+
 	Route::get('banners/search', ['as' => 'manage.banners.search', 'uses' => 'BannersController@search']);
 	Route::resource('banners', 'BannersController');
 	Route::resource('carts', 'CartsController');

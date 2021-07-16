@@ -14,8 +14,8 @@ class CreateTwoWaySmsTable extends Migration
     {
         Schema::create('two_way_sms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('from')->nullable(); 
-            $table->string('to')->nullable(); 
+            $table->string('from_address')->nullable(); 
+            $table->string('to_address')->nullable(); 
             $table->string('channel')->nullable(); 
             $table->string('timeUTC')->nullable(); 
             $table->string('transaction_id')->nullable(); 

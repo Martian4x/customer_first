@@ -31,7 +31,14 @@ class CreateConfigurationsTable extends Migration
             $table->string('2sms_number')->nullable; // 
             $table->string('2sms_api_key')->nullable; // 
             $table->string('2sms_secret_key')->nullable; // 
+            $table->string('2sms_callback')->nullable; // 
             
+            // Airtime
+            $table->string('airtime_api_key')->nullable; // 7fc0ccddff3747dc
+            $table->string('airtime_secret_key')->nullable; // ZWQwOTI2YTFkNmU3OGEyOTNmZjUyYzhiOTY2YWQzM2FmODM4ZjQxZGZjZDRkM2FlZmIwMzYyNjFhZGMzNzEwYg==
+            $table->string('airtime_url')->nullable; // 
+            $table->string('airtime_callback')->nullable; // 
+
             // OTP
             $table->string('otp_url')->nullable; // 
             $table->string('otp_app_id')->nullable; // 

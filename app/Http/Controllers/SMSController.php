@@ -30,6 +30,7 @@ class SMSController extends Controller
 		$vars['title'] = 'SMS';
 		$vars['supplier'] = $supplier;
 		$vars['sub_title'] = 'SMS Management';
+      $vars['supplier_two_messages'] = \App\TwoWaySms::all();
       // dd($vars);
 		// $vars['users'] = User::all();
 		return view('manage.messages.dashboard', compact('vars'));

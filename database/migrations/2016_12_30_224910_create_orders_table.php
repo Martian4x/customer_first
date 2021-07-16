@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('staff_id')->unsigned()->nullable();
             $table->integer('supplier_id')->unsigned()->nullable();
-            $table->string('order_no')->unique(); 
+            $table->string('order_no')->nullable(); 
             $table->enum('ship_to_billing_address', ['Yes','No']);
             $table->string('ship_fname')->nullable();
             $table->string('ship_lname')->nullable();
@@ -40,11 +40,11 @@ class CreateOrdersTable extends Migration
             $table->decimal('shipping_price',12,2)->nullable()->unsigned(); 
             $table->decimal('sub_total_price',12,2)->nullable()->unsigned(); 
             $table->text('order_description')->nullable();
-            $table->enum('payment_method', ['Paypay','Bank Transfer','Cheque','Other']);
+            $table->enum('payment_method', ['BPay','Paypay','Bank Transfer','Cheque','Other'])->default('BPay');
             $table->enum('order_status', ['Rejected','In-Process','Delivered','Shipping','Returned','Pending'])->default('In-Process');
             $table->string('order_status_info')->nullable();
-            $table->timestamp('order_status_date');
-            $table->timestamp('delivered_date');
+            $table->datetime('order_status_date')->nullable();
+            $table->datetime('delivered_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
             

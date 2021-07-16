@@ -1,115 +1,73 @@
-{{-- // 'fname', 'mname', 'lname', 'email', 'password', 'img', 'address', 'mob_no', 'role', 'description' --}}
 
-<div class="form-group">
-    <div class="col-lg-12">
-        <label for="inputEmail1" class="col-lg-2 control-label">Full Name<span class="red">*</span></label>
+    <div class="col-lg-12" style="margin-bottom: 10px">
+        <label for="inputEmail1" class="col-lg-2 control-label">Customer</label>
         <div class="col-lg-10">
-            {!! Form::text('name', null, ['placeholder'=>'First name', 'class'=>'form-control', 'required', 'id'=>'name']) !!} 
-            {!! $errors->first('name', '<small class="error">:message</small>') !!}
+            <select name="customer_id" id="customer_id" class="form-control select2" required>
+                <option value="">-- select customer --</option>
+                @foreach($vars['supplier_customers'] as $customer)
+                <option value="{{$customer->id}}">{{$customer->name}} ({{$customer->mob_no}})</option>
+                @endforeach
+            </select>
+            {!! $errors->first('customer_id', '<small class="error">:message</small>') !!}
         </div>
     </div>
-</div>
-<div class="form-group">
-
-    <div class="col-lg-6">
-        <label for="email" class="col-lg-2 control-label">Email<span class="red">*</span></label>
+    <br>
+    
+    <div class="col-lg-12" style="margin-bottom: 10px">
+        <label for="inputEmail1" class="col-lg-2 control-label">Product</label>
         <div class="col-lg-10">
-            {!! Form::email('email', null, ['placeholder'=>'Email address', 'class'=>'form-control', 'required', 'id'=>'email']) !!}
-            <span id="message_email"></span>
-            {!! $errors->first('email', '<small class="error">:message</small>') !!}
-        </div>
-    </div>
-
-    <div class="col-lg-6">
-        <label for="inputUsername" class="col-lg-2 control-label">Username</label>
-        <div class="col-lg-10">
-            {!! Form::text('username', null, ['placeholder'=>'Will be shown on the forum', 'required', 'class'=>'form-control', 'id'=>'username']) !!} 
-            <span id="message_username"></span>
-            {!! $errors->first('username', '<small class="error">:message</small>') !!}
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <div class="col-lg-6">
-        <label for="inputEmail1" class="col-lg-2 control-label">Password<span class="red">*</span></label>
-        <div class="col-lg-10">
-        @if(!isset($vars['user']->id))
-            <input type="password" name="password" required="true" class="form-control" id="password" placeholder="Password">
-        @else
-            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-        @endif
-            {!! $errors->first('password', '<small class="error">:message</small>') !!}
+            <select name="product_id" id="product_id" class="form-control select2" required>
+                <option value="">-- select product --</option>
+                @foreach($vars['supplier_products'] as $product)
+                <option value="{{$product->id}}">{{$product->name}} ({{number_format($product->price)}} TZS)</option>
+                @endforeach
+            </select>
+            {!! $errors->first('product_id', '<small class="error">:message</small>') !!}
         </div>
     </div>
 
-    <div class="col-lg-6">
-        <label for="inputEmail1" class="col-lg-2 control-label">Password2<span class="red">*</span></label>
-        <div class="col-lg-10">
-        @if(!isset($vars['user']->id))
-            <input type="password" name="password_confirmation" required="true" class="form-control" id="password_confirmation" placeholder="Password confirmation">
-        @else
-            <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Password confirmation">
-        @endif
-            <div class="color-red" id="divCheckPasswordMatch"></div>
-            {!! $errors->first('password_confirmation', '<small class="error">:message</small>') !!}
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <div class="col-lg-6">
-        <label for="inputEmail1" class="col-lg-2 control-label">Mobile</label>
-        <div class="col-lg-10">
-            {!! Form::text('mob_no', null, ['placeholder'=>'Phone number', 'class'=>'form-control', 'id'=>'mob_no']) !!} 
-            {!! $errors->first('mob_no', '<small class="error">:message</small>') !!}
-        </div>
-    </div>
-
-@if(\Auth::user()->role == 'Admin')
-    <div class="col-lg-6">
-        <label for="inputEmail1" class="col-lg-2 control-label">Role<span class="red">*</span></label>
-        <div class="col-lg-10">
-            {!! Form::select('role', ['User'=>'User','Admin'=>'Admin', 'Staff'=>'Staff'],null, ['class'=>'form-control', 'id'=>'role']) !!} 
-            {!! $errors->first('role', '<small class="error">:message</small>') !!}
-        </div>
-    </div>
-@endif
-</div>
-
-<div class="form-group">
-    <div class="col-lg-6">
-        <label for="inputEmail1" class="col-lg-2 control-label">Address</label>
+    <div class="col-lg-12" style="margin-bottom: 10px">
+        <label for="inputEmail1" class="col-lg-2 control-label">Qty</label>
         <div class="col-lg-9">
-            {!! Form::text('address', null, ['placeholder'=>'Address', 'class'=>'form-control','id'=>'address']) !!} 
-            {!! $errors->first('address', '<small class="error">:message</small>') !!}
+            {!! Form::number('quantity', null, ['placeholder'=>'quantity', 'min'=>1, 'required', 'class'=>'form-control','id'=>'quantity']) !!} 
+            {!! $errors->first('quantity', '<small class="error">:message</small>') !!}
         </div>
     </div>
 
-@if(\Auth::user()->role == 'Admin')
-    <div class="col-lg-6">
-        <label for="inputEmail1" class="col-lg-2 control-label">Status<span class="red">*</span></label>
+    <div class="col-lg-12" style="margin-bottom: 10px">
+        <label for="inputEmail1" class="col-lg-2 control-label">Courier</label>
         <div class="col-lg-10">
-            {!! Form::select('status', ['Active'=>'Active','Pending'=>'Pending', 'Banned'=>'Banned', 'Inactive'=>'Inactive'],'User', ['class'=>'form-control', 'id'=>'status']) !!} 
-            {!! $errors->first('status', '<small class="error">:message</small>') !!}
+            <select name="courier_id" id="courier_id" class="form-control select2" required>
+                <option value="">-- select courier --</option>
+                @foreach($vars['supplier_couriers'] as $courier)
+                <option value="{{$courier->id}}">{{$courier->name}} ({{$courier->mob_no}})</option>
+                @endforeach
+            </select>
+            {!! $errors->first('courier_id', '<small class="error">:message</small>') !!}
         </div>
     </div>
-@endif
-</div>
+
+    <div class="col-lg-12" style="margin-bottom: 10px">
+        <label for="inputEmail1" class="col-lg-2 control-label">Transport Fee</label>
+        <div class="col-lg-9">
+            {!! Form::number('transport_fee', null, ['placeholder'=>'transport_fee', 'min'=>0, 'required', 'class'=>'form-control','id'=>'transport_fee']) !!} 
+            {!! $errors->first('transport_fee', '<small class="error">:message</small>') !!}
+        </div>
+    </div>
+
+
 
 <div class="form-group">
     <label for="inputPassword1" class="col-lg-2 control-label">Info</label>
     <div class="col-lg-9">
-            {!! Form::textarea('description', null,['placeholder'=>'Optional Info', 'style'=>'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;', 'class'=>'form-control autogrow', 'id'=>'field-7']) !!}
-            {!! $errors->first('description', '<small class="error">:message</small>') !!}
+            {!! Form::textarea('order_description', null,['placeholder'=>'Optional Info', 'style'=>'overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;', 'class'=>'form-control autogrow', 'id'=>'field-7']) !!}
+            {!! $errors->first('order_description', '<small class="error">:message</small>') !!}
     </div>
 </div>
 
-@if(!isset($vars['user']->id))
-<div class="col-lg-6 checkbox">
+<div class="col-lg-12 checkbox">
     <label>
-        <input type="checkbox"  name="terms" value="true" required="true">
-        I read <a href="/terms" data-toggle="modal" data-target=".bs-terms-modal-lg" class="color-green">Terms and Conditions <span class="color-red">*</span></a>
+        <input type="checkbox"  name="send_sms" value="true" checked>
+        Notify a customer about the order with an SMS.
     </label>
 </div>
-@endif

@@ -33,7 +33,7 @@
                         <ul class="nav nav-tabs">
                            <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">SMS</a></li>
                            <li class=""><a href="#bulk_sms" data-toggle="tab" aria-expanded="false">Send SMS</a></li>
-                           <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false">Messages</a></li>
+                           <li class=""><a href="#messages" data-toggle="tab" aria-expanded="false">Inbox</a></li>
                            <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">History</a></li>
                         </ul>
                         <div class="tab-content">

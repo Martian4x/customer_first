@@ -19,8 +19,8 @@ class SuppliersController extends Controller
 {
 	public function __construct()
 	{
-		$this->middleware('auth');
-		// $this->middleware('auth', ['except' => ['register','store']]);
+		// $this->middleware('auth');
+		$this->middleware('auth', ['except' => ['register','store']]);
 		// $this->middleware(['admin','staff'], ['only' => 'index','destroy','search','status','verify']);
 	// $this->middleware('supplier', ['except' => ['register','store']]);
 	}
@@ -83,6 +83,9 @@ class SuppliersController extends Controller
 
 	public function index()
 	{	
+		if(\Auth::user()->role != 'Admin'){
+			return redirect('/');
+		}
 		$vars['suppliers'] = Supplier::paginate(15);
 		$vars['title'] = 'Suppliers';
         $vars['sub_title'] = 'All registered suppliers';
@@ -133,13 +136,16 @@ class SuppliersController extends Controller
 			$input['supplier_img'] = $file_name;
 			$input['supplier_img_url'] = $logo_path.$file_name;
 		}
+		$input['supplier_id'] = time();
+		$input['mob_no'] = preg_replace('/^(?:\+?255|0)?/','255', $input['supplier_mob_no']) ;
 		//User password
 		$input['password'] = password_hash(Input::get('password'), PASSWORD_BCRYPT, ['cost' => 10]);
 		$input['role'] = 'Supplier';
 		// Saving the model
 		$user = User::create($input);
-        auth()->login($user);
+      auth()->login($user);
 		$supplier = $user->supplier()->create($input);
+		\App\SMS::send($user->recipient(), $supplier->message('supplier_welcome'));
 		return Redirect::route('manage.suppliers.show', $supplier->id)->withMessage($supplier->company_name.' supplier account created successful')->with('flash_type', 'success');
     }
 
@@ -155,6 +161,7 @@ class SuppliersController extends Controller
 		$vars['title'] = $supplier->title;
     	$vars['sub_title'] = 'Supplier details';
     	$vars['supplier'] = $supplier;
+    	$vars['user'] = $supplier->user;
 		return view('manage.suppliers.show', compact('vars',$supplier));
 	}	
 

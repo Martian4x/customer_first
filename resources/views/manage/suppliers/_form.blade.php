@@ -88,7 +88,7 @@
 <div class="form-group">
     <label for="inputPassword1" class="col-lg-2 control-label">Description:</label>
     <div class="col-lg-9">
-            {!! Form::textarea('supplier_description', null,['placeholder'=>'Optional info', 'class'=>'form-control autogrow', 'required', 'id'=>'field-7']) !!}
+            {!! Form::textarea('supplier_description', null,['placeholder'=>'Optional info', 'class'=>'form-control autogrow', 'id'=>'field-7']) !!}
             {!! $errors->first('supplier_description', '<small class="error">:message</small>') !!}
     </div>
 </div>

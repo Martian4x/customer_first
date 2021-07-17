@@ -48,7 +48,7 @@ class FrontendController extends Controller
     public function sms_received()
     {
         $last_sms = \App\TwoWaySms::latest();
-        
+        // CUSTOMER ORDER 
     }
 
     public function maincategory($maincategory_slug)

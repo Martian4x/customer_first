@@ -1,11 +1,19 @@
 {{-- // 'fname', 'mname', 'lname', 'email', 'password', 'img', 'address', 'mob_no', 'role', 'description' --}}
 
 <div class="form-group">
-    <div class="col-lg-12">
-        <label for="inputEmail1" class="col-lg-2 control-label">Full Name<span class="red">*</span></label>
-        <div class="col-lg-10">
-            {!! Form::text('name', null, ['placeholder'=>'First name', 'class'=>'form-control', 'required', 'id'=>'name']) !!} 
-            {!! $errors->first('name', '<small class="error">:message</small>') !!}
+    <div class="col-lg-6">
+        <label for="inputEmail1" class="col-lg-4 control-label">First Name<span class="red">*</span></label>
+        <div class="col-lg-8">
+            {!! Form::text('fname', null, ['placeholder'=>'First name', 'class'=>'form-control', 'required', 'id'=>'name']) !!} 
+            {!! $errors->first('fname', '<small class="error">:message</small>') !!}
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label for="inputEmail1" class="col-lg-4 control-label">Last Name<span class="red">*</span></label>
+        <div class="col-lg-8">
+            {!! Form::text('lname', null, ['placeholder'=>'Lastt name', 'class'=>'form-control', 'required', 'id'=>'name']) !!} 
+            {!! $errors->first('lname', '<small class="error">:message</small>') !!}
         </div>
     </div>
 </div>
@@ -23,7 +31,7 @@
     <div class="col-lg-6">
         <label for="inputUsername" class="col-lg-2 control-label">Username</label>
         <div class="col-lg-10">
-            {!! Form::text('username', null, ['placeholder'=>'Will be shown on the forum', 'required', 'class'=>'form-control', 'id'=>'username']) !!} 
+            {!! Form::text('username', null, ['placeholder'=>'Will be shown on the forum', 'class'=>'form-control', 'id'=>'username']) !!} 
             <span id="message_username"></span>
             {!! $errors->first('username', '<small class="error">:message</small>') !!}
         </div>
@@ -61,7 +69,7 @@
     <div class="col-lg-6">
         <label for="inputEmail1" class="col-lg-2 control-label">Mobile</label>
         <div class="col-lg-10">
-            {!! Form::text('mob_no', null, ['placeholder'=>'Phone number', 'class'=>'form-control', 'id'=>'mob_no']) !!} 
+            {!! Form::text('mob_no', null, ['placeholder'=>'Phone number', 'class'=>'form-control', 'required', 'id'=>'mob_no']) !!} 
             {!! $errors->first('mob_no', '<small class="error">:message</small>') !!}
         </div>
     </div>

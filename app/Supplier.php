@@ -23,6 +23,11 @@ class Supplier extends Model
         return $this->hasMany('\App\Message');
     }
 
+    public function invoices() // 
+    {
+        return $this->hasMany('\App\Invoice');
+    }
+
     public function user()
     {
     	return $this->belongsTo('\App\User','user_id');
@@ -76,5 +81,18 @@ class Supplier extends Model
         }elseif($value == 'Active'){
             return 'label-success';
         }
+    }
+
+    public function message($message_type)
+    {
+        if($message_type=='supplier_welcome'){
+            if($this->user->lang=='en'){
+                return 'Hi '.$this->company_name.', welcome to CustomerFirst Platform. Use your email and password to login.';
+            }else{
+                return 'Hey '. $this->company_name.' karibu kwenye platform ya CustomerFirst. Tumia email na password kuingia';
+            }
+        }
+
+        return false;
     }
 }

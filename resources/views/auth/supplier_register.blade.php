@@ -36,9 +36,9 @@
                             @endif
                         </div>
                         <div class="col-sm-6">
-                            <label>Company logo <span class="color-red">*</span></label>
+                            <label>Company logo </label>
                             <label for="file" class="input input-file">
-                                <div class="button"><input type="file" required="true" name="supplier_img" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" placeholder="Choose a logo image" readonly>
+                                <div class="button"><input type="file" name="supplier_img" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse</div><input type="text" placeholder="Choose a logo image" readonly>
                             </label>
                             @if ($errors->has('supplier_img'))
                                 <span class="color-red">
@@ -58,8 +58,8 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <label>Email <span class="color-red">*</span></label>
-                            <input type="email" name="supplier_email" value="{{ old('supplier_email') }}" required="true" class="form-control margin-bottom-20">
+                            <label>Business Email</label>
+                            <input type="email" name="supplier_email" value="{{ old('supplier_email') }}" class="form-control margin-bottom-20">
                             <span class="color-red">
                                 <strong>{{ $errors->first('supplier_email') }}</strong>
                             </span>
@@ -76,8 +76,8 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <label>Tel Numb<span class="color-red">*</span></label>
-                            <input type="text" name="supplier_tel_no" value="{{ old('supplier_tel_no') }}" required="true" class="form-control margin-bottom-20">
+                            <label>Tel Number</label>
+                            <input type="text" name="supplier_tel_no" value="{{ old('supplier_tel_no') }}" class="form-control margin-bottom-20">
                             <span class="color-red">
                                 <strong>{{ $errors->first('supplier_tel_no') }}</strong>
                             </span>
@@ -86,8 +86,8 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <label>Postal Code <span class="color-red">*</span></label>
-                            <input type="text" name="supplier_postal_code" value="{{ old('supplier_postal_code') }}" required="true" class="form-control margin-bottom-20">
+                            <label>Postal Code </label>
+                            <input type="text" name="supplier_postal_code" value="{{ old('supplier_postal_code') }}" class="form-control margin-bottom-20">
                             <span class="color-red">
                                 <strong>{{ $errors->first('supplier_postal_code') }}</strong>
                             </span>
@@ -95,7 +95,7 @@
 
                         <div class="col-sm-6">
                             <label>Country<span class="color-red">*</span></label>
-                            {!! Form::select('supplier_country', ['Choose a country']+$vars['countries'],null, ['class'=>'form-control', 'id'=>'supplier_country', 'required']) !!}
+                            {!! Form::select('supplier_country', ['Choose a country']+$vars['countries'],null, ['class'=>'form-control select2', 'id'=>'supplier_country', 'required']) !!}
                                 <strong>{{ $errors->first('supplier_country') }}</strong>
                             </span>
                         </div>
@@ -126,7 +126,7 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <label>Email Address <span class="color-red">*</span></label>
+                            <label>Email Address <span class="color-red">*</span> <small>Login Id</small></label>
                             <input type="email" name="email" value="{{ old('email') }}" required="true" class="form-control margin-bottom-20">
                             <span class="color-red">
                                 <strong>{{ $errors->first('email') }}</strong>

@@ -247,13 +247,14 @@ class UsersController extends Controller
 		}
 		$validator = Validator::make(Input::all(),
 			[
-		    'name' => 'required|string|between:2,50',
+		    'fname' => 'required|string|between:2,50',
+		    'lname' => 'required|string|between:2,50',
             'email' => 'required|email|max:255|unique:users,id,'.$id,
-            'username' => 'required|string|max:255|unique:users,id,'.$id,
+            'username' => 'string|max:255|unique:users,id,'.$id,
 		    'role' => 'string',
 			'img' => 'max:1000',
 		    'address' => 'string|between:2,50',
-		    'mob_no' => 'digits_between:0,12',
+		    'mob_no' => 'required|digits_between:0,12',
 		    'status' => 'string',
 		    'role' => 'string|in:Admin,Staff,User',
 		    'description' => 'string',
@@ -275,12 +276,12 @@ class UsersController extends Controller
 			$user = \Auth::user();
 		}
 
-		// Checking username and emails if are taken
-		if(User::whereUsername($request->username)->where('id','!=',$request->user_id)->exists()){
-			return Redirect::back()->withErrors($validator)->withInput()->withMessage('The username you choose is already taken.!')->with('flash_type', 'error');
-		}else{
-			$user->username = Input::get('username');
-		}
+		// // Checking username and emails if are taken
+		// if(User::whereUsername($request->username)->where('id','!=',$request->user_id)->exists()){
+		// 	return Redirect::back()->withErrors($validator)->withInput()->withMessage('The username you choose is already taken.!')->with('flash_type', 'error');
+		// }else{
+		// 	$user->username = Input::get('username');
+		// }
 
 		if(User::whereEmail($request->email)->where('id','!=',$request->user_id)->exists()){
 			return Redirect::back()->withErrors($validator)->withInput()->withMessage('The email you choose is already taken.!')->with('flash_type', 'error');
@@ -324,13 +325,14 @@ class UsersController extends Controller
 			}
 		}
 
-		$user->name = Input::get('name');
+		$user->fname = Input::get('fname');
 		$user->lname = Input::get('lname');
 		$user->email = Input::get('email');
 		$user->address = Input::get('address');
 		// $user->mob_no = Input::get('mob_no'); 
 		$user->mob_no = preg_replace('/^(?:\+?255|0)?/','255', Input::get('mob_no'));
 		$user->description = Input::get('description');
+		// dd($user);
 		if(\Auth::user()->role == 'Admin' || \Auth::user()->role == 'Staff'){
 			$user->status = Input::get('status');
 			$user->role = Input::get('role');

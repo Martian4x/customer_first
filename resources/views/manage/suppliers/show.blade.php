@@ -43,13 +43,12 @@
                                 <dt>Company Name</dt>
                                 <dd>{{ $vars['supplier']->company_name }}</dd>
                                 <dt>Contact Person</dt>
-                                <dd><a href="/manage/users/{{ $vars['supplier']->user->fname }}">{{ $vars['supplier']->user->fname }} {{ $vars['supplier']->user->lname }}</a></dd>
+                                <dd><a href="/manage/users/{{ $vars['user']->id }}">{{ $vars['supplier']->user->fname }} {{ $vars['supplier']->user->lname }}</a></dd>
                                 <dt>Address</dt>
                                 <dd>{{ $vars['supplier']->supplier_address }}</dd>
-                                <dt>Mobile Number</dt>
-                                <dd>{{ $vars['supplier']->supplier_mob_no }}</dd>
-                                <dt>Tel Number</dt>
-                                <dd>{{ $vars['supplier']->supplier_tel_no }}</dd>
+                                <dt>User Mobile</dt>
+                                {{-- <dd>{{ $vars['supplier']->supplier_mob_no }}</dd> --}}
+                                <dd>{{ $vars['user']->mob_no }} {!! $vars['user']->number_verified()!!} @if($vars['user']->mob_no_verified!='Yes'&&\Auth::id()==$vars['user']->id)<button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#mob_no_otp_modal">Verify Number</button> @endif</dd>
                                 <dt>Postal Code</dt>
                                 <dd>{{ $vars['supplier']->supplier_postal_code }}</dd>
                                 <dt>Email</dt>
@@ -72,7 +71,7 @@
                                 @endif
                                 </dd>
                                 <dt>Url</dt>
-                                <dd><a href="/suppliers/{{ $vars['supplier']->id }}" target="_blank">http://sellyou.com/suppliers/{{ $vars['supplier']->id }}</a></dd>
+                                <dd><a href="/manage/suppliers/{{ $vars['supplier']->id }}" target="_blank">http://sellyou.com/suppliers/{{ $vars['supplier']->id }}</a></dd>
 
                             </dl>
                         </div>

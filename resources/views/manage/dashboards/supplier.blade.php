@@ -33,22 +33,22 @@
                         <div class="row">
                             <div class="counters col-md-3 col-sm-3">
                                 <span class="counter-icon"><i class="fa fa-cubes rounded"></i></span>
-                                <span class="counter">0</span>
+                                <span class="counter">{{$vars['supplier']->products()->count()}}</span>
                                 <h4>Products</h4>
                             </div>
                             <div class="counters col-md-3 col-sm-3">
                                 <span class="counter-icon"><i class="fa fa-star-o rounded"></i></span>
-                                <span class="counter">0</span>
+                                <span class="counter">{{$vars['supplier']->orders()->count()}}</span>
                                 <h4>Orders</h4>
                             </div>
                             <div class="counters col-md-3 col-sm-3">
                                 <span class="counter-icon"><i class="fa fa-files-o rounded"></i></span>
-                                <span class="counter">0</span>
+                                <span class="counter">{{$vars['supplier']->invoices()->count()}}</span>
                                 <h4>Invoices</h4>
                             </div>
                             <div class="counters col-md-3 col-sm-3">
                                 <span class="counter-icon"><i class="fa fa-users rounded"></i></span>
-                                <span class="counter">0</span>
+                                <span class="counter">{{$vars['supplier']->customers()->count()}}</span>
                                 <h4>Customers</h4>
                             </div>
                         </div>

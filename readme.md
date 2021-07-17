@@ -73,4 +73,5 @@ On Send SMS table, the user can send a message to any or all of his/her customer
 On the Inbox tab is where all Inbound SMS will appear. That table is dedicated for Two Way SMS.
 Customer can send 'CUSTOMER Order order_id received' on derivery to sign that the order was received
 Customer can send 'CUSTOMER Order order_id status' to get the order status
+Predefined SMS has multi-language feature for english and swahili users. So when sending sms it check which language the use is using then send the sms in that language.
 

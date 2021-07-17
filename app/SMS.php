@@ -5,17 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class SMS extends Model
-{
-    protected $api_key='252d113e8d925e8c';
-    protected $secret_key = 'ODcwMWY3NWE3ODdmNmYzMWUxM2Q1YmE0OTBjYWM1YWRkYjZkYjFlMmZiZDc2MjZlYzQwMWZmNGM4MDI1YjYyNg==';
-    // ODcwMWY3NWE3ODdmNmYzMWUxM2Q1YmE0OTBjYWM1YWRkYjZkYjFlMmZiZDc2MjZlYzQwMWZmNGM4MDI1YjYyNg==
-    
+{   
     public static function send($recepients, $message)
     {
-        // return $recepients;
-        // dd($recepients);
-        $api_key='252d113e8d925e8c';
-        $secret_key = 'ODcwMWY3NWE3ODdmNmYzMWUxM2Q1YmE0OTBjYWM1YWRkYjZkYjFlMmZiZDc2MjZlYzQwMWZmNGM4MDI1YjYyNg==';
+        $config = \App\Configuration::first();
+        $api_key = $config->sms_api_key;
+        $secret_key = $config->sms_secret_key;
+
         $postData = array(
             'source_addr' => 'INFO',
             'encoding'=>0,
@@ -54,8 +50,9 @@ class SMS extends Model
 
     public static function balance()
     {
-        $api_key='252d113e8d925e8c';
-        $secret_key = 'ODcwMWY3NWE3ODdmNmYzMWUxM2Q1YmE0OTBjYWM1YWRkYjZkYjFlMmZiZDc2MjZlYzQwMWZmNGM4MDI1YjYyNg==';
+        $config = \App\Configuration::first();
+        $api_key = $config->sms_api_key;
+        $secret_key = $config->sms_secret_key;
         $username = $api_key;
         $password = $secret_key;
         $Url ='https://apisms.beem.africa/public/v1/vendors/balance';

@@ -72,4 +72,5 @@ Sending SMS is even easier, that can be done on left menu, menu item labeled SMS
 On Send SMS table, the user can send a message to any or all of his/her customers. They can filter out Customersm, Couriers, or their Partiners and multiselect from there. 
 On the Inbox tab is where all Inbound SMS will appear. That table is dedicated for Two Way SMS.
 Customer can send 'CUSTOMER Order order_id received' on derivery to sign that the order was received
+Customer can send 'CUSTOMER Order order_id status' to get the order status
 

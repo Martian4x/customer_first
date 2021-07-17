@@ -58,6 +58,15 @@ class FrontendController extends Controller
                 $order = \App\Order::find($id);
                 $order->update(['status'=>'Delivered']);
             }
+
+            if (strpos(strtolower($message), 'status') !== false){
+                preg_match_all('!\d+!', $message, $matches);
+                $id = (int)$matches[0][0];
+                // dd($id);
+                $order = \App\Order::find($id);
+                $customer = $order->user;
+                \App\SMS::send($customer->recipient(), $order->message('order_status'));
+            }
         }
         // CUSTOMER ORDER 
     }

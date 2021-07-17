@@ -14,7 +14,8 @@ These are the list of problems the platform is trying to solve
 - Small business can reach customers with sms, with no need of internet or mobile app
 - Quickly send Bulk SMS
 - Receive order via sms
-- Receive payments from all mobile payment enabled users
 - Track orders
 - Keep records of their customers
 - Online and Offline Selling portal 
+- Two Way Messangig
+- Airtime Recharge to customers

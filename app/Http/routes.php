@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Input;
 
 Route::get('/', 'HomeController@index');
 Route::auth();
+Route::get('/sms_received', 'FrontendController@sms_received');
 // Socialite urls
 Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('/callback/{provider}', 'SocialAuthController@callback');

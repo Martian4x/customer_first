@@ -45,6 +45,12 @@ class FrontendController extends Controller
         return view('frontend.products.list', compact('vars', $vars));
     }
 
+    public function sms_received()
+    {
+        $last_sms = \App\TwoWaySms::latest();
+        
+    }
+
     public function maincategory($maincategory_slug)
     {
 

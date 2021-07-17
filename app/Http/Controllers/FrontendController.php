@@ -47,7 +47,18 @@ class FrontendController extends Controller
 
     public function sms_received()
     {
-        $last_sms = \App\TwoWaySms::latest();
+        $last_sms = \App\TwoWaySms::latest()->first();
+        $message = $last_sms->message;
+        // dd($last_sms->message);
+        if (strpos(strtolower($message), 'order') !== false) {
+            if (strpos(strtolower($message), 'received') !== false){
+                preg_match_all('!\d+!', $message, $matches);
+                $id = (int)$matches[0][0];
+                // dd($id);
+                $order = \App\Order::find($id);
+                $order->update(['status'=>'Delivered']);
+            }
+        }
         // CUSTOMER ORDER 
     }
 

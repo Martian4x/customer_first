@@ -1,5 +1,5 @@
 <head>
-    <title>sellyou | 
+    <title>CustomerFirst | 
         @if(isset($vars['sub_title']))
         {{ $vars['sub_title'] }}
         @else
@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Selling and Customer Relation Platform">
-    <meta name="author" content="http://sellyou.com">
+    <meta name="author" content="http://customer.martian4x.com/">
     <meta name="_token" content="{{ csrf_token() }}" />
 
     <!-- Favicon -->

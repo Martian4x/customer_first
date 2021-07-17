@@ -84,7 +84,7 @@ class FrontendController extends Controller
         $vars['products'] = $maincategory->products()->paginate(15);
         // dd($maincategory);
 
-        return view('frontend.products.list', compact('vars',$vars));
+        return view('frontend.products.list', compact('vars'));
     }
 
     public function subcategory($maincategory_slug, $subcategory_slug)
@@ -101,8 +101,7 @@ class FrontendController extends Controller
         $vars['subcategory'] = $subcategory;
         $vars['products'] = $subcategory->products()->paginate(15);
         // dd($maincategory);
-
-        return view('frontend.products.list', compact('vars',$vars));
+        return view('frontend.products.list', compact('vars'));
     }
 
     public function products()
@@ -117,7 +116,7 @@ class FrontendController extends Controller
         $vars['products'] = $product->maincategory->products->take(6);
 
         // dd($vars['products']);
-        return view('frontend.products.index', compact('vars',$vars));
+        return view('frontend.products.index', compact('vars'));
     }
 
     public function cart_list()
@@ -129,7 +128,7 @@ class FrontendController extends Controller
         }
         $vars['title'] = 'Cart';
         $vars['sub_title'] = 'Products list';
-        return view('frontend.orders.cart_list', compact('vars',$vars));
+        return view('frontend.orders.cart_list', compact('vars'));
     }
 
     public function check_out()
@@ -142,12 +141,12 @@ class FrontendController extends Controller
             // It means no order yet
             $vars['title'] = 'Order';
             $vars['sub_title'] = 'Billing Address';
-            return view('frontend.orders.billing_address', compact('vars',$vars));
+            return view('frontend.orders.billing_address', compact('vars'));
         }elseif(Order::whereUserId(\Auth::id())->whereOrderStatus('Order')->get()){
             // dd('die');
             $vars['title'] = 'Payment';
             $vars['sub_title'] = 'Make order payments';
-            return view('frontend.orders.payments', compact('vars',$vars));
+            return view('frontend.orders.payments', compact('vars'));
         }
     }
 
@@ -166,7 +165,7 @@ class FrontendController extends Controller
     	$vars['products'] = $product->maincategory->products->take(6);
 
     	// dd($vars['product']);
-        return view('frontend.products.show', compact('vars',$vars));
+        return view('frontend.products.show', compact('vars'));
     }
 
     public function order_now(Request $request)

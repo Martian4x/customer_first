@@ -76,9 +76,9 @@
         <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <p>
-                        {{ date('Y') }} &copy; All rights reserved. <a href="/">sellyou.com</a>. Selling and Customer Relation Platform | Powered by <a href="http://martian4x.com" target="_blank">Martian4x.com</a> | <a href="#" data-toggle="modal" data-target=".bs-terms-modal-lg">Terms of Service</a>
+                        {{ date('Y') }} &copy; All rights reserved. <a href="http://customer.martian4x.com/">customer.martian4x.com</a>. Selling and Customer Relation Platform | Powered by <a href="http://martian4x.com" target="_blank">Martian4x.com</a> | <a href="#" data-toggle="modal" data-target=".bs-terms-modal-lg">Terms of Service</a>
                     </p>
                     </div>
                 </div>

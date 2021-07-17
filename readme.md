@@ -22,6 +22,7 @@ These are the list of problems the platform is trying to solve
 - Online and Offline Selling portal 
 - Two Way Messanges
 - Airtime Recharge to customers
+- The Frontend of the platform is intended for Showcase only, unless Business owner obtain Bill Number for collection then the checkout will be active.
 
 ## Roles
 ### Admin
@@ -68,7 +69,7 @@ Business can manage their couriers on the left menu Couriers
 Business can reward high values customers as a part of enhance customer relationship by rewarding them airtime. They can do that on the platform throght Rewards feature. The Reward is on the left menu, click that and the select a recepient of that AirTime then enter amount then submit.
 
 - SMS
-Sending SMS is even easier, that can be done on left menu, menu item labeled SMS. On that page anything relating SMS can be done there. Can check balance of SMS Credit, Number of SMS sent.
+Sending SMS is even easier, that can be done on left menu, menu item labeled SMS. On that page anything relating SMS can be done there. Can check balance of SMS Credit by clicking the balance checker icon.
 On Send SMS table, the user can send a message to any or all of his/her customers. They can filter out Customersm, Couriers, or their Partiners and multiselect from there. 
 On the Inbox tab is where all Inbound SMS will appear. That table is dedicated for Two Way SMS.
 Customer can send 'CUSTOMER Order order_id received' on derivery to sign that the order was received

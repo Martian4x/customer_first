@@ -54,7 +54,7 @@
                             <button type='button' class="quantity-button" name='add' onclick='javascript: document.getElementById("qty").value++;' value='+'>+</button>
                         
                         {{-- <button type="button" class="btn-u btn-warning addToCart"><i class="fa fa-cart-plus"></i> &nbsp; Add to Cart</button> --}}
-                        <a type="button" href="javascript:;" onclick="orderNow()" class="btn-u btn-u-sea-shop order_now_check_btn"><i class="fa fa-cart-plus"></i> &nbsp; Order Now</a>
+                        {{-- <a type="button" href="javascript:;" onclick="orderNow()" class="btn-u btn-u-sea-shop order_now_check_btn"><i class="fa fa-cart-plus"></i> &nbsp; Order Now</a> --}}
                     {!! Form::close() !!}
                     </div><!--/end product quantity-->
 

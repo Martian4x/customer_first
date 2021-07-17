@@ -90,6 +90,9 @@ class ProductsController extends Controller
 	// Product badge update
 	public function badge_update(ProductRequest $request)
 	{
+		if($request->id==null){
+			return Redirect::back()->withMessage('select a product first.. !')->with('flash_type', 'error');
+		}
 		$products_ids = array_values($request->id);
 		Product::whereIn('id', $products_ids)->update(['badge' => $request->badge]);
 		return Redirect::back()->withMessage('products status label updated successful.. !')->with('flash_type', 'success');
@@ -223,6 +226,12 @@ class ProductsController extends Controller
 			$details = Mineral::create($input);
 		}elseif($input['type']=='Textile'){
 			$details = Textile::create($input);
+		}
+		// Notifiy Customers
+      if($input['notify_customer_by_sms']==true){
+			$customer_numbers = $supplier->customers()->pluck('mob_no')->toArray();
+			// dd($customer_numbers);
+			\App\SMS::send_to_list($customer_numbers, $product->message('new_product'));
 		}
 		return Redirect::back()->withMessage($product->name.' added successful')->with('flash_type', 'success');
     }

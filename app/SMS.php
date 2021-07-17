@@ -81,4 +81,30 @@ class SMS extends Model
         return $response;
     }
 
+    // Enter an array 
+   public static function send_to_list($mob_no_array, $message)
+   {
+      $recepients = [];
+      $recepients_list = $mob_no_array;
+      foreach($recepients_list as $key=>$mob_no){
+         $recepient = [];
+         $id = $key=1;
+         $recepient['recipient_id'] = (string)$id;
+         $recepient['dest_addr'] = preg_replace('/^(?:\+?255|0)?/','255', $mob_no);
+         $recepients[] = $recepient;
+      }
+
+      $feedback = self::send($recepients, $message);  
+      // unserialize($recepients);
+      $sms_request = \App\SmsSendRequest::create(['user_id'=>\Auth::id(),'recepients'=>serialize($recepients),'message'=>$message]);
+      // Save Request;
+		if($feedback){
+         if($sms_request){
+            $sms_request->update(['json_feedback'=>json_encode($feedback)]);
+         }
+         return $feedback;
+		}
+		return false;
+   }
+
 }

@@ -104,10 +104,15 @@ class User extends Authenticatable
     }
 
     public function send_sms($message)
-    {
+    {   
 		$message = 'Hello, '.$this->fname.' '.$message;
         $recepients = [['recipient_id' => '1','dest_addr'=> preg_replace('/^(?:\+?255|0)?/','255', $this->mob_no)]];
         // dd($message);
 		return \App\SMS::send($recepients, $message);
+    }
+
+    public function recipient()
+    {
+        return [['recipient_id' => '1','dest_addr'=> preg_replace('/^(?:\+?255|0)?/','255', $this->mob_no)]];
     }
 }

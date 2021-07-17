@@ -38,6 +38,14 @@ class CreateConfigurationsTable extends Migration
             $table->string('airtime_secret_key')->nullable; // ZWQwOTI2YTFkNmU3OGEyOTNmZjUyYzhiOTY2YWQzM2FmODM4ZjQxZGZjZDRkM2FlZmIwMzYyNjFhZGMzNzEwYg==
             $table->string('airtime_url')->nullable; // 
             $table->string('airtime_callback')->nullable; // 
+            
+            // BPay
+            $table->string('bpay_api_key')->nullable; // f60400386f92b128
+            $table->string('bpay_secret_key')->nullable; // NjU3N2E3YzU1OTIzZmJmOWIxY2RhZTUxYWE5NTNjMGZlYjlhMTlkZDU1ODZkMzU4MmE5YTU1NjYwMmFlMjc4YQ==
+            $table->string('bpay_checkout')->nullable; // 
+            $table->string('bpay_callback')->nullable; // 
+            $table->string('bpay_pattern_match')->nullable; // 
+            $table->string('bpay_bill_number')->nullable; // 
 
             // OTP
             $table->string('otp_url')->nullable; // 

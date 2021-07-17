@@ -40,6 +40,15 @@ class OrdersController extends Controller
 		$vars['title'] = 'Orders';
 		return view('manage.orders.index', compact('vars'));
 	}
+	
+	public function customer_index($supplier_id, $customer_id)
+	{	
+		$vars['title'] = 'Orders';
+		$vars['customer'] = \App\User::find($customer_id);
+		$vars['sub_title'] = $vars['customer']->name.'\'s orders';
+		$vars['orders'] = Order::whereSupplierId($supplier_id)->whereUserId($customer_id)->paginate(30);
+		return view('manage.orders.index', compact('vars'));
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -60,6 +69,7 @@ class OrdersController extends Controller
 
 	public function status($status)
 	{	
+		// dd($status);
 		if(\Auth::user()->role == 'Admin'||\Auth::user()->role == 'Staff'){
 			$vars['orders'] = Order::whereOrderStatus($status)->paginate(30);
 			$vars['sub_title'] = ucfirst($status).' orders';
@@ -96,18 +106,26 @@ class OrdersController extends Controller
    public function supplier_store(OrderRequest $request)
    {
     	$input = $request->all();
-    	dd($input); 
 		 $input['user_id'] = $input['customer_id'];
-		 $input['supplier_id'] = \Auth::id();
+		 $input['supplier_id'] = \Auth::user()->supplier->id;
+    	// dd($input); 
 		//  $input['sub_total_price'] = Cart::subtotal(Cart::whereUserId($input['user_id'])->whereOrderId(null)->get());
-		 $input['sub_total_price'] = Cart::subtotal(Cart::whereUserId($input['user_id'])->whereOrderId(null)->get());
+		//  $input['sub_total_price'] = Cart::subtotal(Cart::whereUserId($input['user_id'])->whereOrderId(null)->get());
     	$order = Order::create($input);
-		$input['order_id'] = $order->id;
-		$cart = Cart::create($input);
-		$carts = Cart::whereUserId($input['user_id'])->update(['order_id'=>$order->id]);
 
-		// Send SMS 
-		
-		return redirect('/check_out')->withMessage('Order No:'. $order->order_no.' has been received successful, Now you can proceed with payments.')->with('flash_type', 'success');
+		 $customer = $order->user;
+		 $courier = $order->courier;
+		//  dd($order);
+		// $input['order_id'] = $order->id;
+		// $cart = Cart::create($input);
+		// $carts = Cart::whereUserId($input['user_id'])->update(['order_id'=>$order->id]);
+
+		// Send SMS
+		\App\SMS::send($customer->recipient(), $order->message('order_created'));
+		\App\SMS::send($customer->recipient(), $order->message('order_total'));
+		\App\SMS::send($courier->recipient(), $order->message('order_ready_pickup'));
+
+		return Redirect::back()->withMessage('Order No:'. $order->order_no.' has been received successful, Now you can proceed with payments.')->with('flash_type', 'success');
+		// return redirect('/check_out')->withMessage('Order No:'. $order->order_no.' has been received successful, Now you can proceed with payments.')->with('flash_type', 'success');
     }
 }

@@ -8,7 +8,6 @@ class Cart extends Model
 {
     protected $fillable = ['user_id', 'product_id', 'order_id', 'quantity', 'transport_fee','supplier_id','courier_id'];
 
-
     public function user()
     {
     	return $this->belongsTo('\App\User');
@@ -18,6 +17,11 @@ class Cart extends Model
     {
         return $this->belongsTo('\App\Order');
     }
+
+    // public function products()
+    // {
+    //     return $this->hasMany('\App\Pro')
+    // }
 
     public function product()
     {

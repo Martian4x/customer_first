@@ -137,8 +137,37 @@ function checkBalance(){
          dataType: "JSON",
          success: function (data) {
             $(".sms_balance_check_btn").html('').hide('slow');
-           console.log(data);
+         //   console.log(data);
             $('.sms_balance_badge').html(data.data.credit_balance);
+         },
+         error: function (xhr, ajaxOptions, thrownError) {
+            $(".sms_balance_check_btn").html('<i class="fa fa-times"></i>');
+           //On error, we alert user
+           console.log(xhr.responseText);
+         },
+       });
+}
+
+function orderNow(){
+      var CSRF_TOKEN = $('meta[name="_token"]').attr("content");
+      $(".order_now_check_btn").html('<i class="icon-append fa fa-spinner fa-spin fa-fw"></i> Check Out..');
+      var product_id = $('#order_product_id').val();
+      var quantity = $('#order_quantity').val();
+     /* send the csrf-token and the input to the controller */
+      $.ajax({
+         /* the route pointing to the post function */
+         url: "/ajax_order_now",
+         type: "POST",
+         data: {
+           _token: CSRF_TOKEN,
+           product_id: product_id,
+           quantity: quantity
+         },
+         dataType: "JSON",
+         success: function (data) {
+            // $(".sms_balance_check_btn").html('').hide('slow');
+           console.log(data);
+            // $('.sms_balance_badge').html(data.data.credit_balance);
          },
          error: function (xhr, ajaxOptions, thrownError) {
             $(".sms_balance_check_btn").html('<i class="fa fa-times"></i>');

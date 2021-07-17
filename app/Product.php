@@ -126,4 +126,18 @@ class Product extends Model
     {
         return ['Rejected'=>'Rejected','Accepted'=>'Accepted','Review'=>'Review','Pending'=>'Pending','Out-Of-Stock'=>'Out-Of-Stock'];
     }
+
+    
+    public function message($message_type)
+    {
+        if($message_type=='new_product'){
+            return 'Hey, we have new '.$this->name.', come checkout!.';
+            // if($this->user->lang=='en'){
+            // }else{
+            //     return 'Helo, Tuna '. $this->name.', unaonaje uje kucheck!.';
+            // }
+        }
+
+        return false;
+    }
 }

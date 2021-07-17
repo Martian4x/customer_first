@@ -143,6 +143,12 @@ class FrontendController extends Controller
         return view('frontend.products.show', compact('vars',$vars));
     }
 
+    public function order_now(Request $request)
+    {
+        $input = $request->all();
+        return $input;
+    }
+
     public function add_to_cart()
     {
         $cart = new Cart;

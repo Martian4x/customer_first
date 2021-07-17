@@ -48,17 +48,17 @@
                     <div class="margin-bottom-40">
                     {!! Form::open( array('route' =>'add_to_cart','class'=>'product-quantity sm-margin-bottom-40', 'name'=>'f1', 'id'=>'cart_form', 'role'=>'form')) !!}
                              <input type="hidden" name="address" value="add_to_cart">
-                             <input type="hidden" name="product_id" value="{{{ $vars['product']->id }}}">
+                             <input type="hidden" name="product_id" value="{{{ $vars['product']->id }}}" id="order_product_id">
                             <button type='button' class="quantity-button" name='subtract' onclick='javascript: subtractQty();' value='-'>-</button>
-                            <input type='text' class="quantity-field" name='quantity' value="1" id='qty'/>
+                            <input type='text' class="quantity-field" name='quantity' value="1" id='order_quantity'/>
                             <button type='button' class="quantity-button" name='add' onclick='javascript: document.getElementById("qty").value++;' value='+'>+</button>
                         
-                        <button type="button" class="btn-u btn-warning addToCart"><i class="fa fa-cart-plus"></i> &nbsp; Add to Cart</button>
-                        <a type="button" href="#" class="btn-u btn-u-sea-shop"><i class="fa fa-cart-plus"></i> &nbsp; Order Now</a>
+                        {{-- <button type="button" class="btn-u btn-warning addToCart"><i class="fa fa-cart-plus"></i> &nbsp; Add to Cart</button> --}}
+                        <a type="button" href="javascript:;" onclick="orderNow()" class="btn-u btn-u-sea-shop order_now_check_btn"><i class="fa fa-cart-plus"></i> &nbsp; Order Now</a>
                     {!! Form::close() !!}
                     </div><!--/end product quantity-->
 
-                    <p class="wishlist-category"><strong>Categories:</strong> 
+                    <p class="wishlist-category" style="clear: both"><strong>Categories:</strong> 
                     <a href="#">{{{ $vars['product']->type }}},</a> 
                     <a href="#">{{{ $vars['product']->maincategory->name }}}</a>,
                     <a href="#">{{{ $vars['product']->subcategory->name }}}</a>

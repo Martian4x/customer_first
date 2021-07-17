@@ -204,8 +204,8 @@
                         <li><span class="color-green">Category:</span> {{{ $product->maincategory->name }}}</li>
                         <li><span class="color-green">Price:</span> {{{ number_format($product->price) }}} USD</li>
                     </ul>
-                    <a class="btn-u btn-u-sm btn-u-sea" href="#">View details</a>
-                    <a class="btn-u btn-u-sm" href="#">Add to cart</a>
+                    <a class="btn-u btn-u-sm btn-u-sea" href="/products/{{{ $product->slug }}}">View details</a>
+                    <a class="btn-u btn-u-sm" href="/products/{{{ $product->slug }}}">Add to cart</a>
                 </div>
             </div>
             <!-- End Easy Block -->

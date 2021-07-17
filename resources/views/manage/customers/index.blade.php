@@ -45,9 +45,8 @@
                         </tr>
                             <tr>
                                 <th>#</th>
-                                <th>First Name</th>
-                                <th class="hidden-sm">Last Name</th>
-                                <th>Email</th>
+                                <th>Name</th>
+                                <th>Orders</th>
                                 <th>Phone</th>
                                 <th>Group</th>
                                 <th>Status</th>
@@ -58,9 +57,8 @@
                         @foreach($vars['users'] as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
-                                <td>{{ $user->fname }}</td>
-                                <td>{{ $user->lname }}</td>
-                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td><a href="/manage/suppliers/{{ $vars['supplier']->id }}/customers/{{ $user->id }}/orders">{{ $user->orders()->count() }}</a></td>
                                 <td>{{ $user->mob_no }} {!! $user->number_verified()!!}</td>
                                 <td> @if($user->user_group) {{ $user->user_group->name }} @endif</td>
                                 <td>{{ $user->status }}</td>

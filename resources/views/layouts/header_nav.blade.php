@@ -229,7 +229,7 @@
                 <div class="col-sm-7 col-sm-offset-1 md-margin-bottom-10" style="padding-right: 0">
                     <div class="input-group" style="width: 100%">
                         <span class="input-group-addon"><i class="fa  fa-search"></i></span>
-                        <input type="text" name="q" placeholder="What are looking for" class="form-control">
+                        <input type="text" name="q" placeholder="What you are looking for" class="form-control">
                     </div>
                 </div>
                 <div class="col-sm-2" style="padding-left: 0">

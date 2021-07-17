@@ -40,8 +40,6 @@ class SuppliersController extends Controller
 
 	public function customers($id)
 	{	
-		
-		// dd('die');
 		if(\Auth::user()->role != 'Admin' && \Auth::user()->role != 'Staff' && \Auth::user()->role != 'Supplier'){
 			return Redirect::back()->withMessage('You do not have Proper Privileges to perform such request..!')->with('flash_type', 'error');
 		}
@@ -49,6 +47,7 @@ class SuppliersController extends Controller
 		$vars['title'] = 'Customers';
 		$vars['sub_title'] = $supplier->company_name.'\'s Customers';
 		$vars['users'] = $supplier->customers;
+		$vars['supplier'] = $supplier;
 		// dd($vars);
 		return view('manage.customers.index', compact('vars'));
 	}

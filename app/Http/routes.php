@@ -25,6 +25,7 @@ Route::post('/add_to_cart', ['as' => 'add_to_cart', 'uses' => 'FrontendControlle
 Route::get('/cart_list', ['as' => 'cart_list', 'uses' =>  'FrontendController@cart_list']);
 Route::get('/check_out', ['as' => 'check_out', 'uses' =>  'FrontendController@check_out']);
 Route::get('/billing_address', ['as' => 'billing_address', 'uses' =>  'FrontendController@check_out']);
+Route::post('/ajax_order_now', ['as' => 'ajax_order_now', 'uses' =>  'FrontendController@order_now']);
 
 //Pages
 Route::get('/pages/tos', ['as' => 'tos', 'uses' => 'FrontendController@tos']);
@@ -127,11 +128,17 @@ Route::group(['prefix' => 'manage/'], function () {
 	
 	// Orders
 	Route::get('orders/status/{status}', 'OrdersController@status');
+	Route::get('suppliers/orders/status/{status}', 'OrdersController@status');
 	Route::get('suppliers/{id}/orders', 'OrdersController@index');
+	Route::get('suppliers/{supplier_id}/customers/{customer_id}/orders', 'OrdersController@customer_index');
 	Route::get('suppliers/orders/create', 'OrdersController@create');
 	Route::get('checkout/callback', 'OrdersController@checkout_callback');
 	Route::post('orders/supplier_store', ['as' => 'manage.orders.supplier_store', 'uses' =>'OrdersController@supplier_store']);
 	Route::resource('orders', 'OrdersController');
+	
+	// Reward
+	Route::get('suppliers/{id}/rewards', 'RewardsController@index');
+	Route::resource('rewards', 'RewardsController');
 
 	Route::get('banners/search', ['as' => 'manage.banners.search', 'uses' => 'BannersController@search']);
 	Route::resource('banners', 'BannersController');

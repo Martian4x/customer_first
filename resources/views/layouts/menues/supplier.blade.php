@@ -15,17 +15,17 @@
         <li class="list-group-item list-toggle">
             <a data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-orders">  <i class="fa fa-star-o"></i> &nbsp; Orders</a>
             <ul id="collapse-orders" class="collapse">
-                <li><a href="/manage/suppliers/{{ \Auth::id() }}/orders/status/new"><i class="fa fa-star-o"></i> &nbsp; New Orders</a></li>
-                <li><a href="/manage/suppliers/{{ \Auth::id() }}/orders/status/payment"><i class="fa fa-money"></i> &nbsp; On-payment Orders</a></li>
-                <li><a href="/manage/suppliers/{{ \Auth::id() }}/orders/status/shipping"><i class="fa fa-ship"></i> &nbsp; Shipping Orders</a></li>
-                <li><a href="/manage/suppliers/{{ \Auth::id() }}/orders/status/returned"><i class="fa fa-times-circle"></i> &nbsp; Rejected Orders</a></li>
-                <li><a href="/manage/suppliers/{{ \Auth::id() }}/orders/status/delivered"><i class="fa fa-home"></i> &nbsp; Delivered Orders</a></li>
-                <li><a href="/manage/suppliers/{{ \Auth::id() }}/orders/status/pending"><i class="fa fa-pause"></i> &nbsp; Pending Orders</a></li>
+                <li><a href="/manage/suppliers/orders/status/new"><i class="fa fa-star-o"></i> &nbsp; New Orders</a></li>
+                <li><a href="/manage/suppliers/orders/status/payment"><i class="fa fa-money"></i> &nbsp; On-payment Orders</a></li>
+                <li><a href="/manage/suppliers/orders/status/shipping"><i class="fa fa-ship"></i> &nbsp; Shipping Orders</a></li>
+                <li><a href="/manage/suppliers/orders/status/returned"><i class="fa fa-times-circle"></i> &nbsp; Rejected Orders</a></li>
+                <li><a href="/manage/suppliers/orders/status/delivered"><i class="fa fa-home"></i> &nbsp; Delivered Orders</a></li>
+                <li><a href="/manage/suppliers/orders/status/pending"><i class="fa fa-pause"></i> &nbsp; Pending Orders</a></li>
                 <li><a href="/manage/suppliers/{{ \Auth::id() }}/orders"><i class="fa fa-align-justify"></i> &nbsp; All Orders</a></li>
             </ul>
         </li>
 
-        <li class="list-group-item"><a href="/manage/suppliers/suppliers/{{ \Auth::id() }}/polls"> <i class="fa fa-wechat"></i> &nbsp; Polls</a></li>
+        <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/rewards"> <i class="fa fa-smile-o"></i> &nbsp; Rewards</a></li>
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/couriers"> <i class="fa fa-motorcycle"></i> &nbsp; Couriers</a></li>
         <li class="list-group-item"><a href="/manage/suppliers/{{ \Auth::id() }}/partners"> <i class="fa fa-truck"></i> &nbsp; Partners/Suppliers</a></li>
 

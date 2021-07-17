@@ -17,6 +17,9 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('staff_id')->unsigned()->nullable();
             $table->integer('supplier_id')->unsigned()->nullable();
+            $table->integer('product_id')->unsigned()->nullable();
+            $table->integer('courier_id')->unsigned()->nullable();
+            $table->decimal('quantity')->nullable();
             $table->string('order_no')->nullable(); 
             $table->enum('ship_to_billing_address', ['Yes','No']);
             $table->string('ship_fname')->nullable();
@@ -51,6 +54,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->foreign('staff_id')->references('id')->on('users')->onDelete('restrict');
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('restrict');
+            $table->foreign('product_id')->references('id')->on('suppliers')->onDelete('restrict');
         });
     }
 

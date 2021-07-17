@@ -35,6 +35,14 @@
                     {!! Form::hidden('supplier_id', $vars['supplier']->id) !!}
                     @include('manage.products._form')
 
+                    @if($vars['supplier'])
+                    <div class="col-lg-12">
+                        <label>
+                                <input type="checkbox"  name="notify_customer_by_sms" value="true">
+                                Notify customers with an SMS.
+                            </label>
+                        </div>
+                    @endif
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <button type="submit" class="btn-u btn-u-blue">Save</button>

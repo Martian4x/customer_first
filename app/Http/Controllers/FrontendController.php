@@ -56,7 +56,7 @@ class FrontendController extends Controller
                 $id = (int)$matches[0][0];
                 // dd($id);
                 $order = \App\Order::find($id);
-                $order->update(['status'=>'Delivered']);
+                $order->update(['order_status'=>'Delivered']);
             }
 
             if (strpos(strtolower($message), 'status') !== false){

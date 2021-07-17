@@ -84,7 +84,7 @@ class Order extends Model
         }
 
         if($message_type=='order_status'){
-            return 'You order is now has a '.$this->status;
+            return 'You order is now has a '.$this->order_status;
         }
 
         return false;
